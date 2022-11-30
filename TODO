@@ -1,0 +1,10 @@
+$Id: TODO 113 2005-02-09 18:02:04Z bmoore $
+
+- Configurable Folder counts in Growl notification
+- Multiple Accounts per server
+- Detach not "un-folding"
+- POP and Local Mail
+- Better Error Reporting
+- Make 'comms' thread-safe & multithread
+
+

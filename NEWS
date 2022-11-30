@@ -1,0 +1,54 @@
+			  -= NEWS for version 1.1.16 =-
+* IMPORTANT: 1.1.16 is Intel 32/64-bit only and requires Snow Leopard (10.6)
+  or higher. If you're running Leopard (10.5), don't upgrade!
+  
+* Bug fixes:
+	- fixed a bug that caused mailbox folders to appear multiple times on 
+      Lion (ID: 3372953)
+    - added native 64-bit support (ID: 3013416)
+    - updated Growl framework
+
+			  -= NEWS for version 1.1.15 =-
+* Bug fixes:
+	- resolved an issue that stopped MacBiff from consistently retrieving 
+	  passwords the from Keychain
+	- incorporated patches to resolve Base64 decoding issues on Intel Macs
+	  and add IMAP UTF7 support
+			  
+			  -= NEWS for version 1.1.14 =-
+* Bug fixes:
+	- re-added brackets around unread count, added an option to disable brackets
+	  (ID: 2934253)
+	- passwords with quoted-special characters are now handled properly
+	  (ID: 2958875)
+	- UTF-8 (and other) encoded subjects are now displayed correctly
+	  (ID: 2957856)
+
+			  -= NEWS for version 1.1.13 =-
+* Added sender and description to Growl notifications
+	- to enable, check 'Fetch Unread Headers'
+
+* Added automatic updates via the Sparkle Framework
+	- for all future versions, you'll be notified if an update
+	  is available on launch.
+
+			  -= NEWS for version 1.1.12 =-
+* Compatible with Leopard and Snow Leopard
+* Universal Binary
+* Re-enabled Growl support (now working on Leopard and Snow Leopard)
+* New icons to better match OS X (Snow) Leopard
+
+			  -= NEWS for version 1.1.9 =-
+* Added "Disabled" Folder support.
+  - Disabled folders are not checked for new email.
+  - Ignored folders are not used to determine if notification of new mail
+    should be done.
+
+* Added Activity Window
+  - Displays the current activity and progress of MacBiff
+
+* Added Growl Support
+  - http://growl.info
+  - Thanks to Mac-arena the Bored Zo
+
+

@@ -1,0 +1,172 @@
+Changelog
+
+Version 1.1.15 to 1.1.16                           (Released: Feb 11, 2012)
+---------------------------------------------------------------------------
+IMPORTANT: 1.1.16 is Intel 32/64-bit only and requires Snow Leopard (10.6)
+or higher. If you're running Leopard (10.5), don't upgrade!
+
+* fixed a bug that caused mailbox folders to appear multiple times on 
+  Lion (ID: 3372953)
+* added native 64-bit support (ID: 3013416)
+* updated Growl framework to version 1.3.1
+
+Version 1.1.14 to 1.1.15                           (Released: Apr 10, 2010)
+---------------------------------------------------------------------------
+* resolved issue retrieving passwords from Keychain (ID: 2983686)
+* incorporated Base64 and UTF7 patches (ID: 2974081, 2974078)
+
+Version 1.1.13 to 1.1.14                           (Released: Mar 15, 2010)
+---------------------------------------------------------------------------
+* Re-added brackets around unread count, added an option to disable brackets
+  (ID: 2934253)
+* Fixed: passwords with quoted-special characters are now handled properly
+  (ID: 2958875)
+* Fixed: UTF-8 (and other) encoded subjects are now displayed correctly
+  (ID: 2957856)
+
+Version 1.1.12 to 1.1.13                           (Released: Jan 13, 2010)
+---------------------------------------------------------------------------
+* Fixed Growl issues
+* Added sender and description to Growl notifications
+* Added automatic updates via the Sparkle Framework
+
+Version 1.1.11 to 1.1.12                           (Released: Nov 07, 2009)
+---------------------------------------------------------------------------
+* Updated to run under Leopard & Snow Leopard
+* Refreshed envelope icon and application icon
+* Re-enabled Growl support
+* Changed default preferences
+
+Version 1.1.10 to 1.1.11                           (Released: Jan 01, 2005)
+---------------------------------------------------------------------------
+* Fixed Growl alert on all accounts bug
+* Folder list now reloads children on change
+* Growl gives limited folder information on new mail
+
+Version 1.1.9 to 1.1.10                            (Released: Dec 04, 2004)
+---------------------------------------------------------------------------
+* Fixed FD-leak on ssh-tunneled connections
+* Fixed some visual artifacts in Activity Window
+* Fixed default-port bug
+
+Version 1.1.8 to 1.1.9                             (Released: Oct 28, 2004)
+---------------------------------------------------------------------------
+* Added Activity Window
+* Fixed Mailbox parse error '&-' -> '&' (IMAP uses modified UTF-7)
+* Added option "Show Activity during Check Now"
+* Cleaned up some memory leaks
+* Silenced some non-error errors with breaking sockets
+* Fixed a no-folder bug
+* Added Growl Support
+* Fixed bug with Check-On-Wake
+* Added "Disabled" Folder support
+* Now closes sockets when connection dies unexpectedly.
+
+Version 1.1.7 to 1.1.8                             (Released: Jul 21, 2004)
+---------------------------------------------------------------------------
+* Resized the Detach window to show scrollbars
+* Fixed a bug where the envelope icon would not disappear
+* Allow specification of the port to attach to
+* Added option to only look at "Subscribed" folders
+
+Version 1.1.6 to 1.1.7                             (Released: Jun 23, 2004)
+---------------------------------------------------------------------------
+* Fixed another quote-escaping issue
+* Fixed a bad fetch response condition
+
+Version 1.1.5 to 1.1.6                             (Released: Jun 21, 2004)
+---------------------------------------------------------------------------
+* Fixed a CRLF issue in sending commands
+* Fixed an erroneous escape bug
+* Checks for new mail upon receiving SIGUSR1
+* Can execute a shell command when new mail is received
+* Store passwords in memory to allow KeyChain to lock
+* Only downloads headers not seen before
+* Does Alert actions whenever new mail is received
+* Can choose to not download headers from "Ignored" boxes
+* Added exception support to handle going to sleep during a check
+
+Version 1.1.4 to 1.1.5                             (Released: Apr 18, 2004)
+---------------------------------------------------------------------------
+* Re-worked Configuration window
+* Added ability to hide "Total" count
+* Added ability to not count "ignored" folders in totals
+
+Version 1.1.3 to 1.1.4                             (Released: Apr 08, 2004)
+---------------------------------------------------------------------------
+* Fixed "jumping" icons
+* Fixed exit(1) on read error
+* Added support for "Literal" Strings
+* Fixed bug for unexpected 'BYE' command
+* Removed extraneous spaces (formatting)
+* Fixed extra quote bug
+* Fixed unescaped quotes bug
+
+Version 1.1.2 to 1.1.3                             (Released: Mar 25, 2004)
+---------------------------------------------------------------------------
+* Fixed bug with "Change Color" not set
+
+Version 1.1.1 to 1.1.2                             (Released: Mar 25, 2004)
+---------------------------------------------------------------------------
+* Added icon in menu bar support
+
+Version 1.1.0 to 1.1.1                             (Released: Mar 23, 2004)
+---------------------------------------------------------------------------
+* Fixed a bug dealing with Folders with Parenthesis
+
+Version 1.1.0-dev2 to 1.1.0                        (Released: Mar 22, 2004)
+---------------------------------------------------------------------------
+* Added "Enabled" / "Disabled" server support
+* Fixed bug where INBOX wouldn't show up if you have a Path Prefix
+
+Version 1.1.0-dev1 to 1.1.0-dev2                   (Released: Mar 19, 2004)
+---------------------------------------------------------------------------
+* Detached view shows dashes rather than zeros for unselected folders
+* Adjusted StatusBar length to NSVariableStatusItemLength
+* Added automatic generation of sound listings
+* Fixed bug where deleted folders stick around
+* Added support to view headers of unread messages
+
+
+Version 1.0.5 to 1.1.0-dev1                        (Released: Mar 15, 2004)
+---------------------------------------------------------------------------
+* Major code rewrite!
+* Configurable Beep
+* Ability to launch preferred mail application from menu
+* Support for multiple servers
+* Visual "Checking" support
+* Remember Password support
+* "Detachable" window
+
+Version 1.0.4 to 1.0.5                             (Released: Mar 02, 2004)
+---------------------------------------------------------------------------
+* Fixed swap() bug
+* Made About and Preferences Active Windows
+
+Version 1.0.3 to 1.0.4                             (Released: Feb 27, 2004)
+---------------------------------------------------------------------------
+* Added Mailbox sorting (thanks to Kyle)
+* Fixed bug where no menu appears until after first check
+* Fixed another "Ignored Folders" bug
+
+Version 1.0.2 to 1.0.3                             (Released: Feb 22, 2004)
+---------------------------------------------------------------------------
+* Fixed compatibility with CommuniGatePro IMAP Server
+* Fixed bug with Spaces in Folder Names
+
+Version 1.0.1 to 1.0.2                             (Released: Feb 21, 2004)
+---------------------------------------------------------------------------
+* Fixed KeyChain Password bug
+
+Version 1.0 to 1.0.1                               (Released: Feb 20, 2004)
+---------------------------------------------------------------------------
+* Fixed too many IMAP commands bugs
+* Fixed atexit() bug
+* Check CAPABILITY for IMAP version
+* Fixed Ignored IMAP Boxes bug
+* Fixed Double-Check bug
+
+Version 1.0                                        (Released: Feb 11, 2004)
+---------------------------------------------------------------------------
+* Initial Release
+

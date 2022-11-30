@@ -1,0 +1,37 @@
+<!--
+ * $Id: version.plist 42 2004-03-22 23:45:52Z bmoore $
+ *
+ * Copyright (c) 2004  Branden J. Moore.
+ *
+ * This file is part of MacBiff, and is free software; you can redistribute
+ * it and/or modify it under the terms of the GNU General Public License as
+ * published by the Free Software Foundation; either version 2 of the
+ * License, or (at your option) any later version.
+ *
+ * MacBiff is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+ * more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with MacBiff; if not, write to the Free Software Foundation, Inc., 59
+ * Temple Place, Suite 330, Boston, MA  02111-1307 USA.
+ *
+ -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BuildVersion</key>
+	<string>17</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.1</string>
+	<key>CFBundleVersion</key>
+	<string>0.1</string>
+	<key>ProjectName</key>
+	<string>NibPBTemplates</string>
+	<key>SourceVersion</key>
+	<string>1150000</string>
+</dict>
+</plist>

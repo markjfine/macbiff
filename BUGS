@@ -1,0 +1,6 @@
+$Id: BUGS 24 2004-03-16 03:24:54Z bmoore $
+
+BUGS:
+---------------------------------------------------------
+* On enter password, not retained unless hit enter
+
