@@ -154,7 +154,7 @@ size_t comms_read( void *buf, size_t count )
 		dprintf("Read %d bytes: [[[%s]]]\n", (int)i, sptr);
 		sptr += i;
 		rbufdatalen += i;
-		dprintf("Buffer contains %d bytes: [[[%s]]]\n",
+        dprintf("Buffer contains %ld bytes: [[[%s]]]\n",
 				sptr - rbuf, rbuf);
 		return comms_read( buf, count );
 	}

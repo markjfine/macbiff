@@ -35,7 +35,7 @@
 	self = [super init];
 	_servers = [[NSMutableArray alloc] initWithCapacity: 5];
 	_pruned = YES;
-	[unreadButton setState: NSOnState];
+	[unreadButton setState: NSControlStateValueOn];
 	return self;
 }
 
@@ -64,7 +64,7 @@
 {
 	int i;
 	/* Switch modes */
-	_pruned = ( [unreadButton state] == NSOnState );
+	_pruned = ( [unreadButton state] == NSControlStateValueOn );
 
 	[outlineView reloadData];
 

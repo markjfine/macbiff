@@ -19,6 +19,10 @@
  *
  */
 
+#ifdef USE_GROWL
+#undef USE_GROWL
+#endif
+
 #include <errno.h>
 #include <signal.h>
 #include <string.h>
@@ -314,22 +318,22 @@ static void sigUSR2( int sig )
 	}
 	[CcountIgnores setState:
 		([prefs boolForKey: @"Ignore Ignores"]) ?
-			NSOffState : NSOnState];
+			NSControlStateValueOff : NSControlStateValueOn];
 	[CcheckHeaders setState:
 		([prefs boolForKey: @"Fetch Unread Headers"]) ?
-			NSOnState : NSOffState];
+			NSControlStateValueOn : NSControlStateValueOff];
 	[CcheckIgnHeaders setState:
 		([prefs boolForKey: @"Fetch Ignored Headers"]) ?
-			NSOnState : NSOffState];
+			NSControlStateValueOn : NSControlStateValueOff];
 	[CchColorBut setState:
 		([prefs boolForKey: @"Alert Color"]) ?
-			NSOnState : NSOffState];
+			NSControlStateValueOn : NSControlStateValueOff];
 	[CdoSoundBut setState:
 		([prefs boolForKey: @"Alert Sound"]) ?
-			NSOnState : NSOffState];
+			NSControlStateValueOn : NSControlStateValueOff];
 	[CuseGrowl setState:
 		([prefs boolForKey: @"Notify with Growl"]) ?
-			   NSOnState : NSOffState];
+			   NSControlStateValueOn : NSControlStateValueOff];
 #ifndef USE_GROWL
 	//this version of MacBiff was not compiled with Growl support.
 	//disable the checkbox to toggle Growl notifications, and set the tool-tip
@@ -339,24 +343,24 @@ static void sigUSR2( int sig )
 #endif
 	[CshowText setState:
 		(![prefs boolForKey: @"Hide Text"]) ?
-			NSOnState : NSOffState];
+			NSControlStateValueOn : NSControlStateValueOff];
 	[CshowTotBut setState:
 		(![prefs boolForKey: @"Hide Total"]) ?
-			NSOnState : NSOffState];
+			NSControlStateValueOn : NSControlStateValueOff];
 	[CshowBrackets setState:
 		(![prefs boolForKey: @"Hide Brackets"]) ?
-			   NSOnState : NSOffState];
+			   NSControlStateValueOn : NSControlStateValueOff];
 	[CshowIcon setState:
 		([prefs boolForKey: @"Show Icon"]) ?
-			NSOnState : NSOffState];
-	[CchColorBut setEnabled: ([CshowText state] == NSOnState) ];
-	[CshowTotBut setEnabled: ([CshowText state] == NSOnState) ];
-	[CshowBrackets setEnabled: ([CshowText state] == NSOnState) ];
-	[CsoundChoicePop setEnabled: ([CdoSoundBut state] == NSOnState) ];
-	[CcheckIgnHeaders setEnabled: ([CcheckHeaders state] == NSOnState) ];
+			NSControlStateValueOn : NSControlStateValueOff];
+	[CchColorBut setEnabled: ([CshowText state] == NSControlStateValueOn) ];
+	[CshowTotBut setEnabled: ([CshowText state] == NSControlStateValueOn) ];
+	[CshowBrackets setEnabled: ([CshowText state] == NSControlStateValueOn) ];
+	[CsoundChoicePop setEnabled: ([CdoSoundBut state] == NSControlStateValueOn) ];
+	[CcheckIgnHeaders setEnabled: ([CcheckHeaders state] == NSControlStateValueOn) ];
 	[CshowActivity setState:
 	       ([prefs boolForKey: @"Show Activity"]) ?
-			NSOnState : NSOffState];
+			NSControlStateValueOn : NSControlStateValueOff];
 	/* Look at sound */
 	[CsoundChoicePop removeAllItems];
 	[CsoundChoicePop addItemWithTitle: @"System Beep"];
@@ -402,29 +406,29 @@ static void sigUSR2( int sig )
 	}
 	[prefs setInteger: delay forKey: @"checkDelay"];
 	
-	[prefs setBool: ( [CcountIgnores state] == NSOffState )
+	[prefs setBool: ( [CcountIgnores state] == NSControlStateValueOff )
 		forKey: @"Ignore Ignores"];
-	[prefs setBool: ( [CcheckHeaders state] == NSOnState )
+	[prefs setBool: ( [CcheckHeaders state] == NSControlStateValueOn )
 		forKey: @"Fetch Unread Headers"];
-	[prefs setBool: ( [CcheckIgnHeaders state] == NSOnState )
+	[prefs setBool: ( [CcheckIgnHeaders state] == NSControlStateValueOn )
 		forKey: @"Fetch Ignored Headers"];
-	[prefs setBool: ( [CshowBrackets state] != NSOnState )
+	[prefs setBool: ( [CshowBrackets state] != NSControlStateValueOn )
 			forKey: @"Hide Brackets"];
-	[prefs setBool: ( [CshowIcon state] == NSOnState )
+	[prefs setBool: ( [CshowIcon state] == NSControlStateValueOn )
 		forKey: @"Show Icon"];
-	[prefs setBool: ( [CshowText state] != NSOnState )
+	[prefs setBool: ( [CshowText state] != NSControlStateValueOn )
 		forKey: @"Hide Text"];
-	[prefs setBool: ( [CshowTotBut state] != NSOnState )
+	[prefs setBool: ( [CshowTotBut state] != NSControlStateValueOn )
 		forKey: @"Hide Total"];
-	[prefs setBool: ( [CchColorBut state] == NSOnState )
+	[prefs setBool: ( [CchColorBut state] == NSControlStateValueOn )
 		forKey: @"Alert Color"];
-	[prefs setBool: ( [CdoSoundBut state] == NSOnState )
+	[prefs setBool: ( [CdoSoundBut state] == NSControlStateValueOn )
 		forKey: @"Alert Sound"];
-	[prefs setBool: ([CuseGrowl state] == NSOnState)
+	[prefs setBool: ([CuseGrowl state] == NSControlStateValueOn)
 		forKey: @"Notify with Growl"];
 	[prefs setObject: [CsoundChoicePop titleOfSelectedItem]
 		forKey: @"Sound Name"];
-	[prefs setBool: ( [CshowActivity state] == NSOnState )
+	[prefs setBool: ( [CshowActivity state] == NSControlStateValueOn )
 		forKey: @"Show Activity"];
 	[prefs setObject: [CmailAppText stringValue] forKey: @"Mail App"];
 	[prefs setObject: [CunreadMailCommand stringValue]
@@ -504,7 +508,7 @@ static void sigUSR2( int sig )
 	if ( ICcurServer != -1 ) return;
 	if ( [CserverTbl selectedRow] < 0 ) return;
 
-	NSAlert *alert = [NSAlert alertWithMessageText:
+    NSAlert *alert = [NSAlert alertWithMessageText:
 			@"Are you sure?"
 			defaultButton: @"Nope"
 			alternateButton: @"Yep"
@@ -543,15 +547,15 @@ static void sigUSR2( int sig )
 
 - (IBAction) selectText: (id) sender
 {
-	[CchColorBut setEnabled: ([CshowText state] == NSOnState) ];
-	[CshowTotBut setEnabled: ([CshowText state] == NSOnState) ];
-	[CshowBrackets setEnabled: ([CshowText state] == NSOnState) ];
+    [CchColorBut setEnabled: ([CshowText state] == NSControlStateValueOn) ];
+    [CshowTotBut setEnabled: ([CshowText state] == NSControlStateValueOn) ];
+    [CshowBrackets setEnabled: ([CshowText state] == NSControlStateValueOn) ];
 }
 
 
 - (IBAction) selectSound: (id) sender
 {
-	[CsoundChoicePop setEnabled: ([CdoSoundBut state] == NSOnState) ];
+    [CsoundChoicePop setEnabled: ([CdoSoundBut state] == NSControlStateValueOn) ];
 }
 
 
@@ -577,7 +581,7 @@ static void sigUSR2( int sig )
 
 - (IBAction) selectFetch: (id) sender
 {
-	[CcheckIgnHeaders setEnabled: ([CcheckHeaders state] == NSOnState) ];
+    [CcheckIgnHeaders setEnabled: ([CcheckHeaders state] == NSControlStateValueOn) ];
 }
 
 
@@ -593,7 +597,7 @@ static void sigUSR2( int sig )
 		file: [CmailAppText stringValue]
 		types: ft];
 
-	if ( res == NSOKButton ) {
+    if ( res == NSModalResponseOK ) {
 		NSArray *files = [op URLs];
 		[CmailAppText setStringValue: [files objectAtIndex: 0]];
 	}
@@ -696,13 +700,11 @@ static void sigUSR2( int sig )
 	[ICUsername setStringValue: [server username]];
 	[ICPasswd setStringValue: @""];
 	[ICPrefix setStringValue: [server prefix]];
-	[ICuseSSL setState: ([server mode] == REMOTE) ?
-			NSOffState : NSOnState];
-	[ICKeepPW setState: [server savesPW] ? NSOnState : NSOffState ];
-	[ICenable setState: [server enabled] ? NSOnState : NSOffState ];
+    [ICuseSSL setState: ([server mode] == REMOTE) ? NSControlStateValueOff : NSControlStateValueOn];
+    [ICKeepPW setState: [server savesPW] ? NSControlStateValueOn : NSControlStateValueOff ];
+    [ICenable setState: [server enabled] ? NSControlStateValueOn : NSControlStateValueOff ];
 	[ICPort setIntValue: [server port]];
-	[ICsubscribed setState: ([server subOnly]) ?
-			NSOnState : NSOffState];
+    [ICsubscribed setState: ([server subOnly]) ? NSControlStateValueOn : NSControlStateValueOff];
 
 	[ICignoreDS setServer: server];
 
@@ -768,12 +770,12 @@ static void sigUSR2( int sig )
 	[server setPrefix: [ICPrefix stringValue]];
 	if ( [[ICPasswd stringValue] length] ) {
 		[server setPassword: [ICPasswd stringValue] andKeep:
-			([ICKeepPW state] == NSOnState) ];
+            ([ICKeepPW state] == NSControlStateValueOn) ];
 	}
-	[server setMode: ([ICuseSSL state] == NSOnState) ? REMOTESSL : REMOTE];
-	[server setEnabled: ([ICenable state] == NSOnState)];
+    [server setMode: ([ICuseSSL state] == NSControlStateValueOn) ? REMOTESSL : REMOTE];
+    [server setEnabled: ([ICenable state] == NSControlStateValueOn)];
 	[server setPort: [ICPort intValue]];
-	[server setSubOnly: ([ICsubscribed state] == NSOnState)];
+    [server setSubOnly: ([ICsubscribed state] == NSControlStateValueOn)];
 
 	[server storePrefs];
 
@@ -787,7 +789,7 @@ static void sigUSR2( int sig )
 
 - (IBAction) IchangeMode: (id) sender
 {
-	[ICPort setIntValue: (([ICuseSSL state] == NSOnState) ?
+    [ICPort setIntValue: (([ICuseSSL state] == NSControlStateValueOn) ?
 		       993 : 143)];
 }
 
@@ -802,7 +804,7 @@ static void sigUSR2( int sig )
 
 	[PWpasswd setStringValue: @""];
 	[PWtext setStringValue: [[servers objectAtIndex: num] name]];
-	[PWkeepPW setState: NSOffState];
+    [PWkeepPW setState: NSControlStateValueOff];
 
 	ICcurServer = num;
 
@@ -824,7 +826,7 @@ static void sigUSR2( int sig )
 	[PWpassWindow close];
 	[[servers objectAtIndex: ICcurServer] setPassword:
 			[PWpasswd stringValue] andKeep:
-			( [PWkeepPW state] == NSOnState ) ];
+            ( [PWkeepPW state] == NSControlStateValueOn ) ];
 	ICcurServer = -1;
 	[self refresh: self];
 }
@@ -847,8 +849,8 @@ static void sigUSR2( int sig )
 	[systemBar setMenu: tmenu];
 
 	/* [systemBar setMenu: mainMenu]; */
-	[systemBar setTitle: @"MacBiff"];
-
+    systemBar.button.title = @"MacBiff";
+    
 	[systemBar setHighlightMode: YES];
 }
 
@@ -1105,25 +1107,28 @@ static void sigUSR2( int sig )
 	if ( [prefs boolForKey: @"Show Icon"] ) {
 		dprintf("Showing icon\n");
 		if ( unread ) {
-			[systemBar setImage: [NSImage
-				imageNamed: @"envelope.pdf"]];
+            systemBar.button.image = [NSImage imageNamed: @"envelope.pdf"];
 		} else if ( [prefs boolForKey: @"Hide Text"] ) {
-			[systemBar setImage: [NSImage imageNamed: @"dash.pdf"]];
-		} else {
-			[systemBar setImage: nil];
+            systemBar.button.image = [NSImage imageNamed: @"dash.pdf"];
+        } else {
+            systemBar.button.image = nil;
 		}
 	} else {
 		dprintf("No icon selected\n");
-		[systemBar setImage: nil];
+        systemBar.button.image = nil;
 	}
 	dprintf("Setting text\n");
 	if ( ![prefs boolForKey: @"Hide Text"] ) {
-		[systemBar setAttributedTitle: attrStr];
+        if (color == [NSColor redColor]) {
+            systemBar.button.attributedTitle = attrStr;
+        } else {
+            systemBar.button.title = [mainMenu title];
+        }
 	} else if ( [prefs boolForKey: @"Show Icon"] ) {
-		[systemBar setTitle: nil];
+        systemBar.button.title = @"";
 	} else {
-		[systemBar setTitle: @"MacBiff"];
-	}
+        systemBar.button.title = @"MacBiff";
+    }
 	dprintf("Setting length\n");
 	[systemBar setLength: NSVariableStatusItemLength];
 	[attrStr release];
@@ -1161,7 +1166,7 @@ static void sigUSR2( int sig )
 - (void) threadRefresh: (id) data
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	NSMutableAttributedString *matstring = NULL;
+    NSMutableAttributedString *matstring = NULL;
 	NSAttributedString *backtitle = NULL;
 	NSMutableString *tstring;
 
@@ -1180,15 +1185,15 @@ static void sigUSR2( int sig )
 			[self setupMenuBar];
 		}
 
-		if ( [systemBar title] ) {
+		if ( systemBar.button.title ) {
 			matstring = [[NSMutableAttributedString alloc]
 				initWithAttributedString:
-					[systemBar attributedTitle]];
-			backtitle = [[NSAttributedString alloc]
+                    systemBar.button.attributedTitle];
+            backtitle = [[NSAttributedString alloc]
 				initWithAttributedString:
-					[systemBar attributedTitle]];
-
-			tstring = [matstring mutableString];
+                    systemBar.button.attributedTitle];
+            
+            tstring = [matstring mutableString];
 			if ( tstring && [tstring length] ) {
 				[tstring replaceOccurrencesOfString: @"["
 					withString: @"{"
@@ -1199,7 +1204,7 @@ static void sigUSR2( int sig )
 					options: NSLiteralSearch|NSBackwardsSearch
 					range: NSMakeRange([tstring length]-1, 1)];
 
-				[systemBar setAttributedTitle: matstring];
+                systemBar.button.attributedTitle = matstring;
 			}
 			[matstring release];
 
@@ -1219,8 +1224,8 @@ static void sigUSR2( int sig )
 			[systemBar setMenu: mainMenu];
 			[Dlist updateData];
 		} else {
-			[systemBar setAttributedTitle: backtitle];
-		}
+            systemBar.button.attributedTitle = backtitle;
+        }
 
 		if ( backtitle ) {
 			[backtitle release];

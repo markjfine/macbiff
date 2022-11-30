@@ -27,7 +27,7 @@
 #import "detachlist.h"
 
 
-@interface MacBiff : NSObject <GrowlApplicationBridgeDelegate> {
+@interface MacBiff : NSObject {
 	NSStatusItem *systemBar;
 	NSMenu *mainMenu;
 	NSMenuItem *checkStatus; /* CheckNow/Checking item */

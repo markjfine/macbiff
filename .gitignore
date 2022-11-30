@@ -1,1 +1,5 @@
 .DS_Store
+Build/*
+DerivedData/*
+MacBiff.xcodeproj/project.xcworkspace
+MacBiff.xcodeproj/xcuserdata
