@@ -475,8 +475,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "/opt/homebrew/Cellar/openssl@1.1/1.1.1s/include/**";
-				LIBRARY_SEARCH_PATHS = "/opt/homebrew/Cellar/openssl@1.1/1.1.1s/lib/**";
+				HEADER_SEARCH_PATHS = "/opt/homebrew/Cellar/openssl@1.1/1.1.1w/include/**";
+				LIBRARY_SEARCH_PATHS = "/opt/homebrew/Cellar/openssl@1.1/1.1.1w/lib/**";
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -515,8 +515,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "/opt/homebrew/Cellar/openssl@1.1/1.1.1s/include/**";
-				LIBRARY_SEARCH_PATHS = "/opt/homebrew/Cellar/openssl@1.1/1.1.1s/lib/**";
+				HEADER_SEARCH_PATHS = "/opt/homebrew/Cellar/openssl@1.1/1.1.1w/include/**";
+				LIBRARY_SEARCH_PATHS = "/opt/homebrew/Cellar/openssl@1.1/1.1.1w/lib/**";
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				SDKROOT = macosx;
 			};
@@ -553,8 +553,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "/opt/homebrew/Cellar/openssl@1.1/1.1.1s/include/**";
-				LIBRARY_SEARCH_PATHS = "/opt/homebrew/Cellar/openssl@1.1/1.1.1s/lib/**";
+				HEADER_SEARCH_PATHS = "/opt/homebrew/Cellar/openssl@1.1/1.1.1w/include/**";
+				LIBRARY_SEARCH_PATHS = "/opt/homebrew/Cellar/openssl@1.1/1.1.1w/lib/**";
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				SDKROOT = macosx;
 			};
@@ -566,7 +566,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1.1.17;
+				CURRENT_PROJECT_VERSION = 1.1.18;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUGGING_SYMBOLS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -588,16 +588,16 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
-				HEADER_SEARCH_PATHS = "/opt/homebrew/Cellar/openssl@1.1/1.1.1s/include";
+				HEADER_SEARCH_PATHS = "/opt/homebrew/Cellar/openssl@1.1/1.1.1w/include";
 				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (
 					/usr/lib,
-					"/opt/homebrew/Cellar/openssl@1.1/1.1.1s/lib",
+					"/opt/homebrew/Cellar/openssl@1.1/1.1.1w/lib",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 1.1.17;
+				MARKETING_VERSION = 1.1.18;
 				OTHER_CFLAGS = "-DUSE_GROWL";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.forkit.MacBiff;
@@ -619,7 +619,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 1.1.17;
+				CURRENT_PROJECT_VERSION = 1.1.18;
 				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -638,16 +638,16 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
-				HEADER_SEARCH_PATHS = "/opt/homebrew/Cellar/openssl@1.1/1.1.1s/include";
+				HEADER_SEARCH_PATHS = "/opt/homebrew/Cellar/openssl@1.1/1.1.1w/include";
 				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (
 					/usr/lib,
-					"/opt/homebrew/Cellar/openssl@1.1/1.1.1s/lib",
+					"/opt/homebrew/Cellar/openssl@1.1/1.1.1w/lib",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 1.1.17;
+				MARKETING_VERSION = 1.1.18;
 				OTHER_CFLAGS = "-DUSE_GROWL";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.forkit.MacBiff;
@@ -668,7 +668,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "-";
-				CURRENT_PROJECT_VERSION = 1.1.17;
+				CURRENT_PROJECT_VERSION = 1.1.18;
 				DEAD_CODE_STRIPPING = YES;
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = 2X7X2WFREK;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -688,16 +688,16 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
-				HEADER_SEARCH_PATHS = "/opt/homebrew/Cellar/openssl@1.1/1.1.1s/include";
+				HEADER_SEARCH_PATHS = "/opt/homebrew/Cellar/openssl@1.1/1.1.1w/include";
 				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (
 					/usr/lib,
-					"/opt/homebrew/Cellar/openssl@1.1/1.1.1s/lib",
+					"/opt/homebrew/Cellar/openssl@1.1/1.1.1w/lib",
 				);
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 1.1.17;
+				MARKETING_VERSION = 1.1.18;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.forkit.MacBiff;
 				PRODUCT_NAME = MacBiff;

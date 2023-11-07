@@ -968,7 +968,7 @@ static void sigUSR2( int sig )
 		if ( res ) {
 			if ( res == EAUTH ) {
 				/* Get password */
-				[self askPassForServer: i];
+				//[self askPassForServer: i];
 				continue;
 			}
 			/* goRed = YES; */
