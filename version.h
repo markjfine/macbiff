@@ -28,7 +28,7 @@
 
 #define MAJOR_V   "1"
 #define MINOR_V   "1"
-#define RELEASE_V "18"
+#define RELEASE_V "19"
 
 #define VERSION MAJOR_V "." MINOR_V "." RELEASE_V
 

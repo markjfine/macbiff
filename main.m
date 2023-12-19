@@ -32,7 +32,8 @@
 // stderr fix from http://gcc.gnu.org/ml/gcc-help/2005-01/msg00273.html
 FILE * _dbgfp;
 
-void init_dbgfp()
+//void init_dbgfp()
+void init_dbgfp(void)
 {
 	_dbgfp = stderr;
 }

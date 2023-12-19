@@ -308,7 +308,8 @@ static void sigUSR2( int sig )
 	int i;
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 
-	int delay = [prefs integerForKey: @"checkDelay"];
+//	int delay = [prefs integerForKey: @"checkDelay"];
+    int delay = (int)[prefs integerForKey: @"checkDelay"];
 	if ( delay > 0 ) {
 		[CdelayText setIntValue: delay];
 		[CdelayStep setIntValue: delay];
@@ -477,9 +478,11 @@ static void sigUSR2( int sig )
 	if ( ICcurServer != -1 ) return;
 
 	if ( sender == CeditBut || sender == CserverTbl ) {
-		ICcurServer = [CserverTbl selectedRow];
+//        ICcurServer = [CserverTbl selectedRow];
+		ICcurServer = (int)[CserverTbl selectedRow];
 	} else {
-		ICcurServer = [sender tag];
+//        ICcurServer = [sender tag];
+		ICcurServer = (int)[sender tag];
 	}
 	ICadding = NO;
 
@@ -490,11 +493,12 @@ static void sigUSR2( int sig )
 - (IBAction) addServer: (id) sender
 {
 	imap *server = [[imap alloc] init];
-	dprintf("Server Count:  %d\n", [servers count]);
+	dprintf("Server Count:  %d\n", (int)[servers count]);
 	[servers addObject: server];
-	ICcurServer = [servers count]-1;
+//	ICcurServer = [servers count]-1;
+    ICcurServer = (int)[servers count]-1;
 	ICadding = YES;
-	dprintf("Server Count:  %d\n", [servers count]);
+	dprintf("Server Count:  %d\n", (int)[servers count]);
 
 	[self Iconfigure];
 }
@@ -508,22 +512,31 @@ static void sigUSR2( int sig )
 	if ( ICcurServer != -1 ) return;
 	if ( [CserverTbl selectedRow] < 0 ) return;
 
-    NSAlert *alert = [NSAlert alertWithMessageText:
-			@"Are you sure?"
-			defaultButton: @"Nope"
-			alternateButton: @"Yep"
-			otherButton: nil
-			informativeTextWithFormat:
-				@"Are you sure you wish to remove server %@?",
-				[[servers objectAtIndex:
-					[CserverTbl selectedRow]] name]];
-	result = [alert runModal];
-
-	if ( result ) {
+//    NSAlert *alert = [NSAlert alertWithMessageText:
+//            @"Are you sure?"
+//			defaultButton: @"Nope"
+//			alternateButton: @"Yep"
+//			otherButton: nil
+//            informativeTextWithFormat:
+//			informativeText:
+//				@"Are you sure you wish to remove server %@?",
+//				[[servers objectAtIndex:
+//					[CserverTbl selectedRow]] name]];
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert addButtonWithTitle: @"Nope"];
+    [alert addButtonWithTitle: @"Yep"];
+    [alert setMessageText: @"Are you sure?"];
+    [alert setInformativeText:
+        [NSString stringWithFormat:@"Are you sure you wish to remove server %@?",
+            [[servers objectAtIndex: [CserverTbl selectedRow]] name]]];
+    [alert setAlertStyle: NSAlertStyleInformational];
+    result = (int)[alert runModal];
+    
+	if ( result == 1000 ) {
 		return;
 	} else {
 		/* Need to remove */
-		[self IremoveServer: [CserverTbl selectedRow]];
+		[self IremoveServer: (int)[CserverTbl selectedRow]];
 		[CserverDS replaceServers: servers];
 		[CserverTbl reloadData];
 	}
@@ -593,9 +606,13 @@ static void sigUSR2( int sig )
 
 	[op setAllowsMultipleSelection: NO];
 
-	res = [op runModalForDirectory: nil
-		file: [CmailAppText stringValue]
-		types: ft];
+//    res = (int)[op runModalForDirectory: nil
+//        file: [CmailAppText stringValue]
+//        types: ft];
+    [op setDirectoryURL: nil];
+    [op setRepresentedFilename: [CmailAppText stringValue]];
+    [op setAllowedFileTypes: ft];
+    res = (int)[op runModal];
 
     if ( res == NSModalResponseOK ) {
 		NSArray *files = [op URLs];
@@ -653,11 +670,13 @@ static void sigUSR2( int sig )
 	NSArray* serverNames;
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 
-	numServers = [prefs integerForKey: @"Server Count"];
+//    numServers = [prefs integerForKey: @"Server Count"];
+	numServers = (int)[prefs integerForKey: @"Server Count"];
 	serverNames = [prefs stringArrayForKey: @"Server Names"];
 	if ( numServers != [serverNames count] ) {
 		alert("Recorded Servers (%d) != Server Count (%d)\n",
-				numServers, [serverNames count]);
+//              numServers, [serverNames count]);
+				numServers, (int)serverNames.count);
 	}
 	for ( i = 0 ; i < [serverNames count] ; ++i ) {
 		dprintf("Building Server '%s'\n",
@@ -851,7 +870,8 @@ static void sigUSR2( int sig )
 	/* [systemBar setMenu: mainMenu]; */
     systemBar.button.title = @"MacBiff";
     
-	[systemBar setHighlightMode: YES];
+//    [systemBar setHighlightMode: YES];
+    systemBar.button.cell.highlighted = YES;
 }
 
 
@@ -927,7 +947,8 @@ static void sigUSR2( int sig )
 	mainMenu = [self standardMenu];
 
 	[actWin performSelectorOnMainThread: @selector(startChecking:)
-				 withObject: [NSNumber numberWithInt: [servers count]]
+//                 withObject: [NSNumber numberWithInt: [servers count]]
+				 withObject: [NSNumber numberWithInt: (int)[servers count]]
 			      waitUntilDone: YES];
 	/* Check Mail */
 	for ( i = 0 ; i < [servers count] ; ++i ) {
@@ -948,18 +969,21 @@ static void sigUSR2( int sig )
 			continue;
 		}
 		dprintf("%s calling [server checkMail]\n", __FUNCTION__ );
-		@try {
-			res = [server checkMail];
+        @try {
+            res = [server checkMail];
 		}
 		@catch (NSException *exception) {
 			alert("Exception thrown!\n");
 			alert("thrown:  '%s'\n", [[exception name] UTF8String]);
 			if ( ![[exception name] isEqualTo: @"Bad Comms"] ) {
 				alert("Howdy\n");
-				@throw;
+                @throw(exception);
 			}
 			res = 1;
 		}
+        @finally {
+            alert("Exception thrown!\n");
+        }
 		if ( user_pressed_stop ) {
 			total = 0;
 			continue;

@@ -45,7 +45,8 @@
 /* Protocol Support */
 - (int) numberOfRowsInTableView: (NSTableView *)tableView
 {
-	return [_names count];
+//    return [_names count];
+	return (int)[_names count];
 }
 
 

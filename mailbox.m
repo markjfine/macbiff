@@ -41,11 +41,12 @@ NSString* deUTF7IMAPString(NSString* istr) {
 			return ostr;
 		}
 		range.length = range2.location - range.location + 1;
-		dprintf("location: %d, length: %d\n", range.location, range.length);
+		dprintf("location: %d, length: %d\n", (int)range.location, (int)range.length);
 		if (range.length > 2) {	/* decode base64 */
 			int lpad = 4 - (range.length - 2) % 4;
 			if (lpad != 4) {
-				[ostr insertString: [[[NSString alloc] initWithCString: "===" length: lpad] autorelease]
+//                [ostr insertString: [[[NSString alloc] initWithCString: "===" length: lpad] autorelease]
+                [ostr insertString: [[[NSString alloc] initWithBytes: "===" length: lpad encoding: 4] autorelease]
 						   atIndex: range.location + range.length - 1];
 				range.length += lpad;
 			}
@@ -59,7 +60,7 @@ NSString* deUTF7IMAPString(NSString* istr) {
 			char tdata[3];
 			NSRange buf;
 			int i;
-			for (i = encodedData.length - 4; i >= 0; i -= 4) {
+			for (i = (int)encodedData.length - 4; i >= 0; i -= 4) {
 				buf = NSMakeRange(i, 4);
 				[encodedData getBytes: fdata range: buf];
 				deBase64(fdata, tdata);

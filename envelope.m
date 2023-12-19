@@ -76,7 +76,8 @@ NSString* deMIMEEncodedWord(NSString* instr)
 	[encodedData setData: [encodedText dataUsingEncoding:
 						   NSASCIIStringEncoding
 									allowLossyConversion: YES]];
-	int len = [encodedData length];
+//    int len = [encodedData length];
+	int len = (int)[encodedData length];
 	
 	if ([encoding caseInsensitiveCompare: @"Q"] == NSOrderedSame ) {
 		char hex[3] = {0};
@@ -84,8 +85,9 @@ NSString* deMIMEEncodedWord(NSString* instr)
 		char byte;
 		int i;
 		char *data = (char*)malloc(len);
-		[encodedData getBytes: data];
-		
+//		[encodedData getBytes: data];
+        [encodedData getBytes:(data) length:(sizeof(data))];
+        
 		NSRange range;
 		for ( i = len-3 ; i >= 0 ; --i ) {
 			if ( data[i] != '=' ) {
@@ -122,7 +124,7 @@ NSString* deMIMEEncodedWord(NSString* instr)
 
 NSString* deMIMEString( NSString *str )
 {
-	dprintf("deMIMEing string: '%s' [length: %d]\n", [str UTF8String], [str length]);
+	dprintf("deMIMEing string: '%s' [length: %d]\n", [str UTF8String], (int)[str length]);
 	NSMutableString *nStr = [[[NSMutableString alloc] init] autorelease];
 	[nStr setString: str];
 	NSRange MIMERange = [nStr rangeOfString: @"=?"];
@@ -182,10 +184,12 @@ NSString* deMIMEString( NSString *str )
 
 	arr = [[NSMutableArray alloc] initWithCapacity: 4];
 
-	length = strlen( str );
+//    length = strlen( str );
+	length = (int)strlen( str );
 	if ( length != [sArr length] ) {
 		alert("Warning, c string length (%u) != NSString length (%u)\n",
-				length, [sArr length]);
+//                length, [sArr length]);
+				length, (int)[sArr length]);
 	}
 	dprintf("Analyzing '%s'...\n", str);
 	for ( i = str+1 ; *i ; i++ ) {
@@ -203,7 +207,8 @@ NSString* deMIMEString( NSString *str )
 			j++;
 			tchar = *j;
 			*j = '\0';
-			tstr = [NSString stringWithCString: i encoding: 4];
+//            tstr = [NSString stringWithCString: i encoding: 4];
+			tstr = [NSMutableString stringWithCString: i encoding: 4];
 			*j = tchar;
 			i = j;
 			dprintf("Sending '%s' to parse as an array.\n",
@@ -215,7 +220,7 @@ NSString* deMIMEString( NSString *str )
 		} else if ( *i == ')' ) {
 			/* End of an array */
 			dprintf("Found end of array at %d of %lu\n",
-					i-str, strlen(str));
+					(int)(i-str), strlen(str));
 			/* MDaemon 7.0.1 does NOT follow RFC3501 */
 			[arr addObject: @"NIL"];
 			break;
@@ -243,7 +248,7 @@ NSString* deMIMEString( NSString *str )
 		} else {
 			if ( *i != 'N' && *i != 'n' ) {
 				dprintf("Unexpected character: %c at"
-					" position %d\n", *i, i-str);
+					" position %d\n", *i, (int)(i-str));
 			} else {
 				dprintf("Storing NIL\n");
 				[arr addObject: @"NIL"];
@@ -294,7 +299,8 @@ out:
 - (id) initWithIMAPEnvelope: (NSString*) env andUID: (unsigned) uid;
 {
 
-	if ( !env ) return env;
+//    if ( !env ) return env;
+	if ( !env ) return nil;
 	self = [super init];
 
 	dprintf("In %s for '%s'\n", __FUNCTION__, [env UTF8String]);
@@ -308,8 +314,22 @@ out:
 				[[[envArr objectAtIndex: i] className] UTF8String]);
 	}
 
-	_date = [[NSCalendarDate dateWithNaturalLanguageString:
-			[envArr objectAtIndex: 0]] retain];
+//    _date = [[NSCalendarDate dateWithNaturalLanguageString:
+//      [envArr objectAtIndex: 0] retain];
+    NSDateFormatter *dFormatter = [[[NSDateFormatter alloc] init] autorelease];
+    dFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
+    dFormatter.dateFormat = @"EEE, dd MMM yyyy HH:mm:ss ZZZZZ";
+    dFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+
+    NSDateFormatter *nFormatter = [[[NSDateFormatter alloc] init] autorelease];
+    nFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
+    nFormatter.dateFormat = @"dd MMM yyyy HH:mm:ss ZZZZZ";
+    nFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+
+    _date = [[dFormatter dateFromString:[envArr objectAtIndex: 0]] retain];
+    if (!_date) {
+        _date = [[nFormatter dateFromString:[envArr objectAtIndex: 0]] retain];
+    }
 	_subject = [deMIMEString([envArr objectAtIndex: 1]) copy];
 	_from = [deMIMEString([self stringFromObject: [envArr objectAtIndex: 2]]) copy];
 	_sender = [deMIMEString([self stringFromObject: [envArr objectAtIndex: 3]]) copy];
@@ -368,7 +388,8 @@ out:
 }
 
 
-- (NSCalendarDate*) date
+//- (NSCalendarDate*) date
+- (NSDate*) date
 {
 	return _date;
 }

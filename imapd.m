@@ -46,9 +46,9 @@
 
 #define isend(msg) do { \
 	int _res; \
-	int _foo = strlen( msg ); \
+	int _foo = (int)strlen( msg ); \
 	dwrite("> ", msg ); \
-	if ( (_res = comms_write( msg, _foo ) ) != _foo) { \
+	if ( (_res = (int)comms_write( msg, _foo ) ) != _foo) { \
 		/*alert("Received %d from write\n", _res ); */ \
 		goto out; \
 	} \
@@ -58,9 +58,9 @@
 
 #define igets(msg, size) do { \
 	int _res; \
-        bzero( msg, size ); \
+    bzero( msg, size ); \
 	errno = 0; \
-	if ( (_res = comms_read( msg, size ) ) <= 0 ) { \
+	if ( (_res = (int)comms_read( msg, size ) ) <= 0 ) { \
 		/*alert("Received %d from read\n", _res ); */ \
 		goto out; \
 	} \
@@ -121,10 +121,10 @@ int escape_quotes( char * buf, int length )
 	[_responseArr removeAllObjects];
 	do {
 		memset(buf,0,1024);
-		iget( buf );
+        iget( buf );
 
 		/* Check for literal string */
-		x = strlen( buf );
+		x = (int)strlen( buf );
 		literallength = 0;
 		literalstart = NULL;
 		if (buf[x-2] == 13 && buf[x-3] == '}' ) {
@@ -270,8 +270,10 @@ out:
 	snprintf(buf, 1024, "%05u LOGIN %s \"%s\"\r\n", _cmduid++,
 			[username UTF8String], [[self quotePassword:passwd] UTF8String]);
 
-	len = strlen( buf );
-	if ( (res = comms_write( buf, len ) ) != len) {
+//    len = strlen( buf );
+	len = (int)strlen( buf );
+//    if ( (res = comms_write( buf, len ) ) != len) {
+	if ( (res = (int)comms_write( buf, len ) ) != len) {
 		/*alert("Received %d from write\n", res ); */
 		goto out;
 	}

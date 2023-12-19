@@ -144,7 +144,7 @@ size_t comms_ssl_read( void *buf, size_t count )
 	}
 
 	do {
-		res = SSL_read(ssl, buf, count);
+		res = SSL_read(ssl, buf, (int)count);
 		if ( res <= 0 ) {
 			err = SSL_get_error(ssl, res);
 			alert("res: %d, err: %d, errno: %d\n", res, err, errno );
@@ -167,7 +167,7 @@ size_t comms_ssl_write( void *buf, size_t count )
 	}
 
 	do {
-		res = SSL_write(ssl, buf, count);
+		res = SSL_write(ssl, buf, (int)count);
 		if ( res <= 0 ) {
 			err = SSL_get_error(ssl, res);
 		}

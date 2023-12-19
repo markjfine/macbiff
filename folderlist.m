@@ -67,7 +67,8 @@
 - (int) outlineView: (NSOutlineView *) ov
 	numberOfChildrenOfItem: (id)item
 {
-	return (item == nil) ? [[rootBox subBoxes] count] : [[item subBoxes] count];
+//    return (item == nil) ? [[rootBox subBoxes] count] : [[item subBoxes] count];
+	return (item == nil) ? (int)[[rootBox subBoxes] count] : (int)[[item subBoxes] count];
 }
 
 

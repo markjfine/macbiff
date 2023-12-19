@@ -88,9 +88,11 @@
 - (int) numberOfChildrenOfItemFull: (id)item
 {
 	if ( [item isKindOfClass: [imap class]]  ) {
-		return [[item mailboxes] count];
+//        return [[item mailboxes] count];
+        return (int)[[item mailboxes] count];
 	} else if ( [item isKindOfClass: [mailbox class]] ) {
-		return [[item subBoxes] count];
+//        return [[item subBoxes] count];
+		return (int)[[item subBoxes] count];
 	} else {
 		dprintf("Unknown class for %p\n", item);
 		return 0;
@@ -138,7 +140,8 @@
 			return [self numberOfChildrenOfItemFull: item];
 		}
 	} else {
-		return [_servers count];
+//        return [_servers count];
+		return (int)[_servers count];
 	}
 }
 

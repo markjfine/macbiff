@@ -116,16 +116,21 @@ NSInteger compareMBnames( id s1, id s2, void *ctx )
 - (NSString*) getPWfromKeychain: (SecKeychainItemRef*) ref
 	andStatus: (OSStatus*) status
 {
-	void *tpw = NULL;
+//	void *tpw = NULL;
+    CFTypeRef tpw = NULL;
 	NSString *pw = nil;
-	UInt32 len;
+    NSMutableData *pwd = nil;
+//	UInt32 len;
 	UInt32 port = ( _mode == REMOTESSL ) ? 993 : 143;
+/*
 	*status = SecKeychainFindInternetPassword(
 			NULL,
-			[_server length],
+//            [_server length],
+			(unsigned)[_server length],
 			[_server UTF8String],
 			0, NULL,
-			[_username length],
+//            [_username length],
+			(unsigned)[_username length],
 			[_username UTF8String],
 			0,
 			NULL,
@@ -134,10 +139,28 @@ NSInteger compareMBnames( id s1, id s2, void *ctx )
 			kSecAuthenticationTypeDefault,
 			&len, (void**)&tpw,
 			ref);
-
-	if ( tpw && *status == noErr ) {
-		pw = [NSString stringWithCString: tpw length: len];
-		SecKeychainItemFreeContent(NULL, tpw);
+*/
+    NSDictionary *query = @{(__bridge id)kSecClass : (__bridge id)kSecClassInternetPassword,
+                            (__bridge id)kSecAttrServer : (__bridge id)_server,
+                            (__bridge id)kSecAttrSecurityDomain : @"",
+                            (__bridge id)kSecAttrAccount : (__bridge id)_username,
+                            (__bridge id)kSecAttrPath : @"",
+                            (__bridge id)kSecAttrPort : @(port),
+                            (__bridge id)kSecAttrProtocol : (port == 993) ? @"imps" : @"imap",
+                            (__bridge id)kSecAttrAuthenticationType : @"dflt",
+                            (__bridge id)kSecMatchLimit : (__bridge id)kSecMatchLimitOne,
+                            (__bridge id)kSecReturnAttributes : @(true),
+                            (__bridge id)kSecReturnData : @(true),
+                            (__bridge id)kSecReturnRef : @(true)};
+        
+    *status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &tpw);
+    
+    if ( tpw && *status == noErr ) {
+        pwd = [(id)tpw objectForKey:(__bridge id)kSecValueData];
+        ref = (SecKeychainItemRef*)[(id)tpw objectForKey:(__bridge id)kSecValueRef];
+//        pw = [NSString stringWithCString: tpw length: len];
+        pw = [NSString stringWithCString: pwd.mutableBytes encoding:4];
+//		SecKeychainItemFreeContent(NULL, tpw);
 	}
 	return pw;
 }
@@ -164,27 +187,81 @@ NSInteger compareMBnames( id s1, id s2, void *ctx )
 	[self getPWfromKeychain: &ref andStatus: &status];
 	if ( status == errSecItemNotFound ) {
 		/* Add Password */
-		SecKeychainAddInternetPassword( NULL,
-			[_server length],
-			[_server UTF8String],
-			0, NULL,
-			[_username length],
-			[_username UTF8String],
-			0, NULL,
-			port,
-			( port == 993 ) ? kSecProtocolTypeIMAPS : kSecProtocolTypeIMAP,
-			kSecAuthenticationTypeDefault,
-			[_passwd length],
-			[_passwd UTF8String],
-			NULL);
-	} else {
-		/* Update Password */
-		SecKeychainItemModifyAttributesAndData(
-			ref,
-			NULL,
-			[_passwd length],
-			[_passwd UTF8String]);
-	}
+/*
+        SecKeychainAddInternetPassword( NULL,
+//            [_server length],
+            (unsigned)[_server length],
+            [_server UTF8String],
+            0, NULL,
+//            [_username length],
+            (unsigned)[_username length],
+            [_username UTF8String],
+            0, NULL,
+            port,
+            ( port == 993 ) ? kSecProtocolTypeIMAPS : kSecProtocolTypeIMAP,
+            kSecAuthenticationTypeDefault,
+//            [_passwd length],
+            (unsigned)[_passwd length],
+            [_passwd UTF8String],
+            NULL);
+*/
+        NSDictionary *query = @{(__bridge id)kSecClass : (__bridge id)kSecClassInternetPassword,
+                                (__bridge id)kSecAttrServer : (__bridge id)_server,
+                                (__bridge id)kSecAttrSecurityDomain : @"",
+                                (__bridge id)kSecAttrAccount : (__bridge id)_username,
+                                (__bridge id)kSecAttrPath : @"",
+                                (__bridge id)kSecAttrPort : @(port),
+                                (__bridge id)kSecAttrProtocol : (port == 993) ? @"imps" : @"imap",
+                                (__bridge id)kSecAttrAuthenticationType : @"dflt",
+                                (__bridge id)kSecValueData : (__bridge id)_passwd};
+
+        status = SecItemAdd((__bridge CFDictionaryRef)query, NULL);
+        if (status != 0) {
+            NSAlert *alert = [[NSAlert alloc] init];
+            [alert setMessageText: @"Keychain Add Failed!"];
+            [alert setInformativeText:
+                [NSString stringWithFormat: @"Adding keychain item for %@ failed!\n\n%@",
+                 _username, SecCopyErrorMessageString(status, nil)]];
+            [alert setAlertStyle: NSAlertStyleInformational];
+
+            [alert runModal];
+        }
+    } else {
+        /* Update Password */
+        /*
+         SecKeychainItemModifyAttributesAndData(
+         ref,
+         NULL,
+         //            [_passwd length],
+         (unsigned)[_passwd length],
+         [_passwd UTF8String]);
+         */
+        NSDictionary *query = @{(__bridge id)kSecClass : (__bridge id)kSecClassInternetPassword,
+                                (__bridge id)kSecAttrServer : (__bridge id)_server,
+                                (__bridge id)kSecAttrSecurityDomain : @"",
+                                (__bridge id)kSecAttrAccount : (__bridge id)_username,
+                                (__bridge id)kSecAttrPath : @"",
+                                (__bridge id)kSecAttrPort : @(port),
+                                (__bridge id)kSecAttrProtocol : (port == 993) ? @"imps" : @"imap",
+                                (__bridge id)kSecAttrAuthenticationType : @"dflt",
+                                (__bridge id)kSecMatchLimit : (__bridge id)kSecMatchLimitOne,
+                                (__bridge id)kSecReturnAttributes : @(true),
+                                (__bridge id)kSecReturnData : @(true)};
+        
+        NSDictionary *attr = @{(__bridge id)kSecValueData : [(__bridge id)_passwd dataUsingEncoding:NSUTF8StringEncoding]};
+
+        status = SecItemUpdate((__bridge CFDictionaryRef)query, (__bridge CFDictionaryRef)attr);
+        if (status != 0) {
+            NSAlert *alert = [[NSAlert alloc] init];
+            [alert setMessageText: @"Keychain Update Failed!"];
+            [alert setInformativeText:
+                [NSString stringWithFormat: @"Password Update for keychain item %@ failed!\n\n%@",
+                 _username, SecCopyErrorMessageString(status, nil)]];
+            [alert setAlertStyle: NSAlertStyleInformational];
+            
+            [alert runModal];
+        }
+    }
 
 }
 
@@ -209,15 +286,22 @@ NSInteger compareMBnames( id s1, id s2, void *ctx )
 		dprintf("Authenticated \n");
 		status = 0;
 	} else {
-		NSAlert *alert = [NSAlert alertWithMessageText:
-			@"Login Failed!"
-			defaultButton: nil
-			alternateButton: nil
-			otherButton: nil
-			informativeTextWithFormat:
-				@"Login to %@ Failed!",
-				_name];
-		[alert runModal];
+//		NSAlert *alert = [NSAlert alertWithMessageText:
+//			@"Login Failed!"
+//			defaultButton: nil
+//			alternateButton: nil
+//			otherButton: nil
+//			informativeTextWithFormat:
+//				@"Login to %@ Failed!",
+//				_name];
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert setMessageText: @"Login Failed!"];
+        [alert setInformativeText:
+            [NSString stringWithFormat: @"Login to %@ Failed!",
+                _name]];
+        [alert setAlertStyle: NSAlertStyleInformational];
+
+        [alert runModal];
 		status = EAUTH;
 	}
 	[actWin performSelectorOnMainThread: @selector(activityDone:)
@@ -316,8 +400,8 @@ NSInteger compareMBnames( id s1, id s2, void *ctx )
 	range2.location = range1.location + range1.length;
 	range2.length = [tstr length] - range2.location;
 	dprintf("Setting range to %d -> %d (length %d), and thus: '%s'\n",
-			range2.location, range2.location+range2.length,
-			[tstr length],
+			(int)range2.location, (int)(range2.location+range2.length),
+			(int)[tstr length],
 			[[tstr substringWithRange: range2] UTF8String]);
 
 	env = [[envelope alloc] initWithIMAPEnvelope:
@@ -383,7 +467,7 @@ NSInteger compareMBnames( id s1, id s2, void *ctx )
 	[box setTotal: [[statArray objectAtIndex: 1] intValue]];
 
 	dprintf("I claim I (%p) have %d envelopes\n",
-			(void*)[box envelopes], [oldenvelopes count]);
+			(void*)[box envelopes], (int)[oldenvelopes count]);
 #if defined(EBUG) && EBUG
 	for ( i = 0 ; i < [[box envelopes] count] ; ++i ) {
 		dprintf("Box %d has uid: %u\n", i, [[[box envelopes] objectAtIndex: i] uid]);
@@ -413,9 +497,10 @@ NSInteger compareMBnames( id s1, id s2, void *ctx )
 	} else {
 		uidstr = [tstr substringFromIndex: range.location];
 		unreadUIDs = [uidstr componentsSeparatedByString: @" "];
-		dprintf("Found %d unread UIDs : '%s'\n", [unreadUIDs count],
+		dprintf("Found %d unread UIDs : '%s'\n", (int)[unreadUIDs count],
 				[uidstr UTF8String] );
-		[box setUnread: [unreadUIDs count]];
+//        [box setUnread: [unreadUIDs count]];
+		[box setUnread: (int)[unreadUIDs count]];
 
 		if ( [box unread] ) {
 			for ( i = 0 ; i < [unreadUIDs count] ; ++i ) {
@@ -473,7 +558,7 @@ out:
 	unsigned i;
 	mailbox *box;
 
-	dprintf("In %s (%p)->[0..%d]\n", __FUNCTION__, boxlist, [boxlist count] );
+	dprintf("In %s (%p)->[0..%d]\n", __FUNCTION__, boxlist, (int)[boxlist count] );
 	for ( i = 0 ; i < [boxlist count] ; ++i ) {
 		if ( user_pressed_stop ) {
 			break;
@@ -547,7 +632,8 @@ out:
 			if ( _sep == Nil || _firstCheck) {
 				if ( _sep ) [_sep release];
 				_sep = [[NSString alloc] initWithCString: psep
-								length:1];
+//								length:1];
+                                encoding:4];
 				dprintf("Set _sep to '%s'\n", [_sep UTF8String]);
 			}
 
@@ -581,7 +667,8 @@ out:
 		}
 	}
 	if ( !foundInbox ) {
-		[boxlist addObject: [NSString stringWithString: @"INBOX"]];
+//		[boxlist addObject: [NSString stringWithString: @"INBOX"]];
+        [boxlist addObject: @"INBOX"];
 	}
 
 out:
@@ -606,7 +693,8 @@ out:
 	NSString *name = [parts objectAtIndex: depth];
 
 	if ( [boxes containsObject: name] ) {
-		unsigned idx = [boxes indexOfObject: name];
+//        unsigned idx = [boxes indexOfObject: name];
+		unsigned idx = (int)[boxes indexOfObject: name];
 		if ( depth == [parts count]-1 ) {
 			return [boxes objectAtIndex: idx];
 		} else {
@@ -641,7 +729,8 @@ out:
     while (object = [e nextObject]) {
         if ( [[object name] isEqualToString: name] ) {
             duplicate = YES;
-            idx = [boxes indexOfObject: object];
+//            idx = [boxes indexOfObject: object];
+            idx = (int)[boxes indexOfObject: object];
         } else {
         }
     }
@@ -711,7 +800,7 @@ out:
 	NSArray *boxlist = [self getboxlist];
 
 	int i;
-	dprintf("Found %u boxes\n", [boxlist count]);
+	dprintf("Found %u boxes\n", (unsigned)[boxlist count]);
 	for ( i = 0 ; i < [boxlist count] ; ++i ) {
 		dprintf("Trying to find box '%s'.\n", [[boxlist objectAtIndex: i] UTF8String]);
 		[self findBox: [[boxlist objectAtIndex: i]
@@ -793,9 +882,11 @@ out:
 
 			/* Now, check for ignoring */
 			if ( [tbox isIgnored] ) {
-				[menuItem setState: NSOffState];
+//                [menuItem setState: NSOffState];
+				[menuItem setState: NSControlStateValueOff];
 			} else {
-				[menuItem setState: NSOnState];
+//				  [menuItem setState: NSOnState];
+                [menuItem setState: NSControlStateValueOn];
 				_newMail |= [tbox newMail];
 			}
 			
@@ -863,8 +954,10 @@ out:
 	_storedPW = NO;
 	_prefix =   [[NSString alloc] initWithString: @""];
 	_sep = [[NSString alloc] initWithString: @""];
-	_mode = NIL;
-	_port = 143;
+//    _mode = NIL;
+	_mode = REMOTESSL;
+//    _port = 143;
+	_port = 993;
 	_subscribedOnly = NO;
 	_mailboxes = [[NSMutableArray arrayWithCapacity: 50] retain];
 	_boxesWithNewMail = [[NSMutableArray arrayWithCapacity: 5] retain];
@@ -890,14 +983,21 @@ out:
 	_remote = nil;
 	if ( ![prefs integerForKey: [NSString stringWithFormat:
 			@"initServer[%@]", name]] ) {
-		NSAlert *alert = [NSAlert alertWithMessageText:
-				@"Unable to Load Server"
-			defaultButton: nil
-			alternateButton: nil
-			otherButton: nil
-			informativeTextWithFormat:
-				@"Unable to load server '%@' from "
-					"Preferences.", name];
+//		NSAlert *alert = [NSAlert alertWithMessageText:
+//				@"Unable to Load Server"
+//			defaultButton: nil
+//			alternateButton: nil
+//			otherButton: nil
+//			informativeTextWithFormat:
+//				@"Unable to load server '%@' from "
+//					"Preferences.", name];
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert setMessageText: @"Unable to Load Server"];
+        [alert setInformativeText: 
+            [NSString stringWithFormat: @"Unable to load server '%@' from "
+                "Preferences", name]];
+        [alert setAlertStyle: NSAlertStyleInformational];
+
 		[alert runModal];
 		return [self init];
 	}
@@ -914,7 +1014,8 @@ out:
 	_prefix = [[NSString alloc] initWithString:
 		[prefs stringForKey:
 			[NSString stringWithFormat: @"prefix[%@]", name]]];
-	_mode = [prefs integerForKey:
+//    _mode = [prefs integerForKey:
+	_mode = (cmode_t)[prefs integerForKey:
 			[NSString stringWithFormat: @"mode[%@]", name]];
 
 	tstr = [prefs stringForKey:
@@ -930,7 +1031,8 @@ out:
 
 	_subscribedOnly = [prefs boolForKey:
 			[NSString stringWithFormat: @"subscribed[%@]", name]];
-	_port = [prefs integerForKey:
+//    _port = [prefs integerForKey:
+	_port = (int)[prefs integerForKey:
 			[NSString stringWithFormat: @"port[%@]", name]];
 	_passwd = Nil;
 
@@ -1253,12 +1355,15 @@ out:
 			inBoxArray: _mailboxes
 			withDepth: 0];
 
-	if ( [menuItem state] == NSOnState ) {
+//	if ( [menuItem state] == NSOnState ) {
+    if ( [menuItem state] == NSControlStateValueOn ) {
 		[box setIgnored: YES];
-		[menuItem setState: NSOffState];
+//        [menuItem setState: NSOffState];
+		[menuItem setState: NSControlStateValueOff];
 	} else {
 		[box setIgnored: NO];
-		[menuItem setState: NSOnState];
+//		[menuItem setState: NSOnState];
+        [menuItem setState: NSControlStateValueOn];
 	}
 
 	[[menuItem menu] itemChanged: menuItem];

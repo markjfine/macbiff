@@ -26,7 +26,8 @@ void deBase64(char* bin, char* bout);
 @interface envelope : NSObject {
 	unsigned _uid;
 	bool _initialized;
-	NSCalendarDate *_date;
+//    NSCalendarDate *_date;
+	NSDate *_date;
 	NSString *_subject;
 	NSString *_from;
 	NSString *_sender;
@@ -42,7 +43,8 @@ void deBase64(char* bin, char* bout);
 
 - (void) setUID: (unsigned) uid;
 - (unsigned) uid;
-- (NSCalendarDate*) date;
+//- (NSCalendarDate*) date;
+- (NSDate*) date;
 - (NSString*) subject;
 - (NSString*) from;
 - (NSString*) sender;
