@@ -982,7 +982,11 @@ static void sigUSR2( int sig )
 			res = 1;
 		}
         @finally {
-            alert("Exception thrown!\n");
+            if (res == 1) {
+                alert("Exception thrown!\n");
+            } else {
+                alert("[server checkMail] ok.\n");
+            }
         }
 		if ( user_pressed_stop ) {
 			total = 0;

@@ -86,7 +86,7 @@ NSString* deMIMEEncodedWord(NSString* instr)
 		int i;
 		char *data = (char*)malloc(len);
 //		[encodedData getBytes: data];
-        [encodedData getBytes:(data) length:(sizeof(data))];
+        [encodedData getBytes: data length: sizeof(data)];
         
 		NSRange range;
 		for ( i = len-3 ; i >= 0 ; --i ) {
@@ -305,7 +305,7 @@ out:
 
 	dprintf("In %s for '%s'\n", __FUNCTION__, [env UTF8String]);
 	NSArray* envArr = [self parseStringArray: env];
-
+    
 	_uid = uid;
 
 	int i;
@@ -313,23 +313,42 @@ out:
 		dprintf("Object %d is of type %s\n", i,
 				[[[envArr objectAtIndex: i] className] UTF8String]);
 	}
-
+    
 //    _date = [[NSCalendarDate dateWithNaturalLanguageString:
 //      [envArr objectAtIndex: 0] retain];
+    NSString* dateStr = [envArr objectAtIndex: 0];
+    //remove day of week at beginning if there
+    if ([[[dateStr substringToIndex:4] substringFromIndex:3]  isEqual: @","]) {
+        dateStr = [dateStr substringFromIndex:5];
+    }
+    int dateLen = (int)[dateStr length];
+    //remove parenthetical time zone at end if there
+    if ([[[dateStr substringToIndex:dateLen] substringFromIndex:(dateLen-1)]  isEqual: @")"]) {
+        int datePos = dateLen - 1;
+        bool parFound = false;
+        while (!parFound) {
+            if ([[[dateStr substringToIndex:datePos] substringFromIndex:(datePos-1)]  isEqual: @"("]) {
+                parFound = true;
+            } else {
+                datePos -= 1;
+            }
+        }
+        dateStr = [dateStr substringToIndex:(datePos - 2)];
+    }
+    //add seconds if missing
+    if (([[dateStr componentsSeparatedByString:@":"] count] - 1) == 1) {
+        NSArray* arr = [dateStr componentsSeparatedByString:@":"];
+        int minutes = (int)[[arr objectAtIndex:0] length]+3;
+        NSString* temp = [NSString stringWithFormat:@"%@",dateStr];
+        dateStr = [NSString stringWithFormat:@"%@%@%@",[temp substringToIndex:minutes],@":00",[temp substringFromIndex:(minutes-1)]];
+    }
+    
     NSDateFormatter *dFormatter = [[[NSDateFormatter alloc] init] autorelease];
     dFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
-    dFormatter.dateFormat = @"EEE, dd MMM yyyy HH:mm:ss ZZZZZ";
+    dFormatter.dateFormat = @"dd MMM yyyy HH:mm:ss ZZZZZ";
     dFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
 
-    NSDateFormatter *nFormatter = [[[NSDateFormatter alloc] init] autorelease];
-    nFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
-    nFormatter.dateFormat = @"dd MMM yyyy HH:mm:ss ZZZZZ";
-    nFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
-
-    _date = [[dFormatter dateFromString:[envArr objectAtIndex: 0]] retain];
-    if (!_date) {
-        _date = [[nFormatter dateFromString:[envArr objectAtIndex: 0]] retain];
-    }
+    _date = [[dFormatter dateFromString:dateStr] retain];
 	_subject = [deMIMEString([envArr objectAtIndex: 1]) copy];
 	_from = [deMIMEString([self stringFromObject: [envArr objectAtIndex: 2]]) copy];
 	_sender = [deMIMEString([self stringFromObject: [envArr objectAtIndex: 3]]) copy];

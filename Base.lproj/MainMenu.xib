@@ -267,7 +267,7 @@ Gw
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="KCM-4H-Xce"/>
                                             </constraints>
                                         </box>
-                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="520">
+                                        <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="520">
                                             <rect key="frame" x="17" y="79" width="292" height="14"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="4Gq-TK-5cZ"/>
@@ -278,7 +278,7 @@ Gw
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField toolTip="Execute this command when new mail arrives.  See README for details" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="519">
+                                        <textField toolTip="Execute this command when new mail arrives.  See README for details" focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="519">
                                             <rect key="frame" x="19" y="56" width="288" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="50D-sp-QLj"/>
@@ -374,7 +374,7 @@ Gw
                                     <rect key="frame" x="10" y="33" width="328" height="254"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="480">
+                                        <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="480">
                                             <rect key="frame" x="17" y="216" width="116" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="112" id="oee-a6-1TS"/>
@@ -385,7 +385,7 @@ Gw
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="479">
+                                        <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="479">
                                             <rect key="frame" x="139" y="213" width="37" height="21"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" drawsBackground="YES" id="626">
                                                 <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="0" negativeFormat="-0" localizesFormat="NO" hasThousandSeparators="NO" thousandSeparator="," id="482">
@@ -455,7 +455,7 @@ Gw
                                                 <outlet property="nextKeyView" destination="485" id="607"/>
                                             </connections>
                                         </button>
-                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="486">
+                                        <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="486">
                                             <rect key="frame" x="17" y="94" width="105" height="16"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Mail Application:" id="632">
                                                 <font key="font" metaFont="system"/>
@@ -463,7 +463,7 @@ Gw
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="485">
+                                        <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="485">
                                             <rect key="frame" x="19" y="64" width="214" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="mbY-Tf-te7"/>
@@ -611,7 +611,7 @@ Gw
                         </constraints>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="icon" id="636"/>
                     </imageView>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="258">
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="258">
                         <rect key="frame" x="108" y="130" width="130" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="MacBiff Version x.y.z" id="639">
                             <font key="font" metaFont="system"/>
@@ -619,20 +619,20 @@ Gw
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="253">
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="253">
                         <rect key="frame" x="108" y="80" width="250" height="48"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="246" id="SQD-V0-aCY"/>
                         </constraints>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" id="637">
                             <font key="font" metaFont="system"/>
-                            <string key="title">Copyright (c) Branden J. Moore, 2004 &amp; Mark J. Fine, 2023
+                            <string key="title">Copyright (c) Branden J. Moore, 2004 &amp; Mark J. Fine, 2023-24
 Released under the GPL</string>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="270">
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="270">
                         <rect key="frame" x="108" y="61" width="182" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="http://www.forkit.org/macbiff/" id="640">
                             <font key="font" metaFont="system"/>
@@ -698,7 +698,7 @@ DQ
                 <rect key="frame" x="0.0" y="0.0" width="560" height="413"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="278">
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="278">
                         <rect key="frame" x="26" y="375" width="105" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Server Identifier:" id="643">
                             <font key="font" metaFont="system"/>
@@ -706,7 +706,7 @@ DQ
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="277">
+                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="277">
                         <rect key="frame" x="136" y="372" width="135" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="135" id="ng8-EG-PR7"/>
@@ -720,7 +720,7 @@ DQ
                             <outlet property="nextKeyView" destination="283" id="572"/>
                         </connections>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="279">
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="279">
                         <rect key="frame" x="44" y="346" width="87" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Server Name:" id="644">
                             <font key="font" metaFont="system"/>
@@ -728,7 +728,7 @@ DQ
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="283">
+                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="283">
                         <rect key="frame" x="136" y="343" width="135" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="135" id="XHn-pX-kec"/>
@@ -742,7 +742,7 @@ DQ
                             <outlet property="nextKeyView" destination="284" id="573"/>
                         </connections>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="280">
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="280">
                         <rect key="frame" x="55" y="317" width="76" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="User Name:" id="645">
                             <font key="font" metaFont="system"/>
@@ -750,7 +750,7 @@ DQ
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="284">
+                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="284">
                         <rect key="frame" x="136" y="314" width="135" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="135" id="xRj-AK-Y3H"/>
@@ -764,7 +764,7 @@ DQ
                             <outlet property="nextKeyView" destination="285" id="574"/>
                         </connections>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="281">
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="281">
                         <rect key="frame" x="65" y="288" width="66" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Password:" id="646">
                             <font key="font" metaFont="system"/>
@@ -772,7 +772,7 @@ DQ
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="285" customClass="NSSecureTextField">
+                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="285" customClass="NSSecureTextField">
                         <rect key="frame" x="136" y="285" width="135" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="135" id="ZUn-MA-6ob"/>
@@ -786,7 +786,7 @@ DQ
                             <outlet property="nextKeyView" destination="286" id="575"/>
                         </connections>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="282">
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="282">
                         <rect key="frame" x="57" y="259" width="74" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Path Prefix:" id="647">
                             <font key="font" metaFont="system"/>
@@ -794,7 +794,7 @@ DQ
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="286">
+                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="286">
                         <rect key="frame" x="136" y="256" width="135" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="135" id="9k1-w7-knK"/>
@@ -808,7 +808,7 @@ DQ
                             <outlet property="nextKeyView" destination="531" id="576"/>
                         </connections>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="530">
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="530">
                         <rect key="frame" x="62" y="230" width="69" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="IMAP Port:" id="658">
                             <font key="font" metaFont="system"/>
@@ -816,7 +816,7 @@ DQ
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="531">
+                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="531">
                         <rect key="frame" x="136" y="227" width="135" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="135" id="wEv-Xn-idP"/>
@@ -1057,7 +1057,7 @@ DQ
                 <rect key="frame" x="0.0" y="0.0" width="365" height="147"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="387">
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="387">
                         <rect key="frame" x="18" y="111" width="189" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Please enter the Password for:" id="666">
                             <font key="font" metaFont="system"/>
@@ -1065,7 +1065,7 @@ DQ
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="375">
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="375">
                         <rect key="frame" x="213" y="111" width="76" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="servername" id="662">
                             <font key="font" metaFont="system"/>
@@ -1073,7 +1073,7 @@ DQ
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="374">
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="374">
                         <rect key="frame" x="18" y="84" width="175" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Please enter your password:" id="661">
                             <font key="font" metaFont="system"/>
@@ -1081,7 +1081,7 @@ DQ
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="372" customClass="NSSecureTextField">
+                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="372" customClass="NSSecureTextField">
                         <rect key="frame" x="201" y="81" width="144" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="144" id="5EZ-Hk-j3C"/>
@@ -1298,7 +1298,7 @@ DQ
                 <rect key="frame" x="0.0" y="0.0" width="347" height="130"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="541">
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="541">
                         <rect key="frame" x="16" y="94" width="108" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Checking Server:" id="668">
                             <font key="font" metaFont="system"/>
@@ -1306,7 +1306,7 @@ DQ
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="542">
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="542">
                         <rect key="frame" x="126" y="94" width="70" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="--- idle ---" id="669">
                             <font key="font" metaFont="system"/>
@@ -1314,7 +1314,7 @@ DQ
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="543">
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="543">
                         <rect key="frame" x="16" y="45" width="315" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="311" id="egK-Wm-sfI"/>

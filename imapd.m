@@ -25,7 +25,7 @@
 #include <strings.h>
 #include <string.h>
 
-#define DEBUG 0
+/*#define DEBUG 0*/
 
 #if 0
 # define EBUG 1
