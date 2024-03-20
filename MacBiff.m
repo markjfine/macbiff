@@ -1091,9 +1091,11 @@ static void sigUSR2( int sig )
 	NSDictionary *attrs;
 	NSColor *color = [NSColor blackColor];
 	NSAttributedString *attrStr;
+    dispatch_queue_main_t queue;
 
 	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
 
+    queue = dispatch_get_main_queue();
 	dprintf("%s calling checkMail\n", __FUNCTION__);
 	[self checkMail];
 
@@ -1134,13 +1136,19 @@ static void sigUSR2( int sig )
 
 	if ( [prefs boolForKey: @"Show Icon"] ) {
 		dprintf("Showing icon\n");
-		if ( unread ) {
-            systemBar.button.image = [NSImage imageNamed: @"envelope.pdf"];
-		} else if ( [prefs boolForKey: @"Hide Text"] ) {
-            systemBar.button.image = [NSImage imageNamed: @"dash.pdf"];
+        if ( unread ) {
+            dispatch_async(queue, ^{
+                systemBar.button.image = [NSImage imageNamed: @"envelope.pdf"];
+            });
+        } else if ( [prefs boolForKey: @"Hide Text"] ) {
+            dispatch_async(queue, ^{
+                systemBar.button.image = [NSImage imageNamed: @"dash.pdf"];
+            });
         } else {
-            systemBar.button.image = nil;
-		}
+            dispatch_async(queue, ^{
+                systemBar.button.image = nil;
+            });
+        }
 	} else {
 		dprintf("No icon selected\n");
         systemBar.button.image = nil;
@@ -1148,18 +1156,30 @@ static void sigUSR2( int sig )
 	dprintf("Setting text\n");
 	if ( ![prefs boolForKey: @"Hide Text"] ) {
         if (color == [NSColor redColor]) {
-            systemBar.button.attributedTitle = attrStr;
+            dispatch_async(queue, ^{
+                systemBar.button.attributedTitle = attrStr;
+            });
         } else {
-            systemBar.button.title = [mainMenu title];
+            dispatch_async(queue, ^{
+                systemBar.button.title = [mainMenu title];
+            });
         }
 	} else if ( [prefs boolForKey: @"Show Icon"] ) {
-        systemBar.button.title = @"";
+        dispatch_async(queue, ^{
+            systemBar.button.title = @"";
+        });
 	} else {
-        systemBar.button.title = @"MacBiff";
+        dispatch_async(queue, ^{
+            systemBar.button.title = @"MacBiff";
+        });
     }
 	dprintf("Setting length\n");
-	[systemBar setLength: NSVariableStatusItemLength];
-	[attrStr release];
+    dispatch_async(queue, ^{
+        [systemBar setLength: NSVariableStatusItemLength];
+    });
+    if (attrStr) {
+        [attrStr release];
+    }
 }
 
 
@@ -1183,11 +1203,11 @@ static void sigUSR2( int sig )
 
 - (IBAction) refresh: (id) sender
 {
-	dprintf("In %s\n", __FUNCTION__);
-
-	[NSThread detachNewThreadSelector: @selector (threadRefresh:)
-			toTarget: self
-			withObject: nil];
+    dprintf("In %s\n", __FUNCTION__);
+    
+    [NSThread detachNewThreadSelector: @selector (threadRefresh:)
+                             toTarget: self
+                           withObject: nil];
 }
 
 
@@ -1197,6 +1217,7 @@ static void sigUSR2( int sig )
     NSMutableAttributedString *matstring = NULL;
 	NSAttributedString *backtitle = NULL;
 	NSMutableString *tstring;
+    dispatch_queue_main_t queue;
 
 	if ( [lock tryLock] ) {
 
@@ -1213,6 +1234,7 @@ static void sigUSR2( int sig )
 			[self setupMenuBar];
 		}
 
+        queue = dispatch_get_main_queue();
 		if ( systemBar.button.title ) {
 			matstring = [[NSMutableAttributedString alloc]
 				initWithAttributedString:
@@ -1232,9 +1254,13 @@ static void sigUSR2( int sig )
 					options: NSLiteralSearch|NSBackwardsSearch
 					range: NSMakeRange([tstring length]-1, 1)];
 
-                systemBar.button.attributedTitle = matstring;
+                dispatch_async(queue, ^{
+                    systemBar.button.attributedTitle = matstring;
+                });
 			}
-			[matstring release];
+            if ( matstring ) {
+                [matstring release];
+           }
 
 		}
 		[checkStatus setTitle: @"Stop Check"];
@@ -1252,7 +1278,9 @@ static void sigUSR2( int sig )
 			[systemBar setMenu: mainMenu];
 			[Dlist updateData];
 		} else {
-            systemBar.button.attributedTitle = backtitle;
+            if (backtitle) {
+                systemBar.button.attributedTitle = backtitle;
+            }
         }
 
 		if ( backtitle ) {
@@ -1265,8 +1293,9 @@ static void sigUSR2( int sig )
 		[checkStatus setTarget: self];
 		[mainMenu itemChanged: checkStatus];
 
-
-		[pool release];
+        if (pool) {
+            [pool release];
+        }
 		if ( CheckNow ) {
 			CheckNow = NO;
 		}

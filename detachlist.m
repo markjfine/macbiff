@@ -79,7 +79,12 @@
 
 - (void) updateData
 {
-	[outlineView reloadData];
+    dispatch_queue_main_t queue;
+
+    queue = dispatch_get_main_queue();
+    dispatch_async(queue, ^{
+        [outlineView reloadData];
+    });
 }
 
 
