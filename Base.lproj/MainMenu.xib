@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="22505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="24128" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22505"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="24128"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -11,14 +12,14 @@
         <window title="MacBiff Setup" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="21" userLabel="Setup">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <rect key="contentRect" x="37" y="464" width="374" height="346"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2056" height="1285"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2056" height="1289"/>
             <value key="minSize" type="size" width="213" height="107"/>
             <view key="contentView" id="2">
                 <rect key="frame" x="0.0" y="0.0" width="374" height="346"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button imageHugsTitle="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="232">
-                        <rect key="frame" x="308" y="12" width="53" height="32"/>
+                        <rect key="frame" x="312" y="19" width="42" height="24"/>
                         <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" inset="2" id="611">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -31,7 +32,7 @@ DQ
                         </connections>
                     </button>
                     <button imageHugsTitle="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="233">
-                        <rect key="frame" x="234" y="12" width="76" height="32"/>
+                        <rect key="frame" x="234" y="19" width="66" height="24"/>
                         <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="612">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -104,7 +105,7 @@ Gw
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                             <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="676">
-                                                <rect key="frame" x="197" y="26" width="16" height="169"/>
+                                                <rect key="frame" x="196" y="26" width="17" height="169"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                             <tableHeaderView key="headerView" wantsLayer="YES" id="678">
@@ -116,7 +117,7 @@ Gw
                                             </connections>
                                         </scrollView>
                                         <button imageHugsTitle="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="465">
-                                            <rect key="frame" x="236" y="186" width="78" height="32"/>
+                                            <rect key="frame" x="243" y="189" width="64" height="24"/>
                                             <buttonCell key="cell" type="push" title="New" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="613">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -127,7 +128,7 @@ Gw
                                             </connections>
                                         </button>
                                         <button imageHugsTitle="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="467">
-                                            <rect key="frame" x="236" y="154" width="78" height="32"/>
+                                            <rect key="frame" x="243" y="153" width="64" height="24"/>
                                             <buttonCell key="cell" type="push" title="Edit" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="615">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -138,7 +139,7 @@ Gw
                                             </connections>
                                         </button>
                                         <button imageHugsTitle="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="466">
-                                            <rect key="frame" x="236" y="122" width="78" height="32"/>
+                                            <rect key="frame" x="243" y="117" width="64" height="24"/>
                                             <buttonCell key="cell" type="push" title="Delete" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="614">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -244,7 +245,7 @@ Gw
                                             <rect key="frame" x="123" y="110" width="188" height="25"/>
                                             <popUpButtonCell key="cell" type="push" title="Item2" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="472" id="619">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="menu"/>
+                                                <font key="font" metaFont="message"/>
                                                 <menu key="menu" title="OtherViews" id="473">
                                                     <items>
                                                         <menuItem title="Sound Choice" id="469"/>
@@ -267,7 +268,7 @@ Gw
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="KCM-4H-Xce"/>
                                             </constraints>
                                         </box>
-                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="520">
+                                        <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="520">
                                             <rect key="frame" x="17" y="79" width="292" height="14"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="4Gq-TK-5cZ"/>
@@ -278,7 +279,7 @@ Gw
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField toolTip="Execute this command when new mail arrives.  See README for details" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="519">
+                                        <textField toolTip="Execute this command when new mail arrives.  See README for details" focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="519">
                                             <rect key="frame" x="19" y="56" width="288" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="50D-sp-QLj"/>
@@ -374,7 +375,7 @@ Gw
                                     <rect key="frame" x="10" y="33" width="328" height="254"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="480">
+                                        <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="480">
                                             <rect key="frame" x="17" y="216" width="116" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="112" id="oee-a6-1TS"/>
@@ -385,7 +386,7 @@ Gw
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="479">
+                                        <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="479">
                                             <rect key="frame" x="139" y="213" width="37" height="21"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" drawsBackground="YES" id="626">
                                                 <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="0" negativeFormat="-0" localizesFormat="NO" hasThousandSeparators="NO" thousandSeparator="," id="482">
@@ -455,7 +456,7 @@ Gw
                                                 <outlet property="nextKeyView" destination="485" id="607"/>
                                             </connections>
                                         </button>
-                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="486">
+                                        <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="486">
                                             <rect key="frame" x="17" y="94" width="105" height="16"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Mail Application:" id="632">
                                                 <font key="font" metaFont="system"/>
@@ -463,7 +464,7 @@ Gw
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="485">
+                                        <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="485">
                                             <rect key="frame" x="19" y="64" width="214" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="288" id="mbY-Tf-te7"/>
@@ -597,7 +598,7 @@ Gw
         <window title="About MacBiff" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="250" userLabel="About">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <rect key="contentRect" x="347" y="387" width="375" height="164"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2056" height="1285"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2056" height="1289"/>
             <value key="minSize" type="size" width="213" height="107"/>
             <view key="contentView" id="249">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="164"/>
@@ -611,7 +612,7 @@ Gw
                         </constraints>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="icon" id="636"/>
                     </imageView>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="258">
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="258">
                         <rect key="frame" x="108" y="130" width="130" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="MacBiff Version x.y.z" id="639">
                             <font key="font" metaFont="system"/>
@@ -619,20 +620,20 @@ Gw
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="253">
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="253">
                         <rect key="frame" x="108" y="80" width="250" height="48"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="246" id="SQD-V0-aCY"/>
                         </constraints>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" id="637">
                             <font key="font" metaFont="system"/>
-                            <string key="title">Copyright (c) Branden J. Moore, 2004 &amp; Mark J. Fine, 2023-24
+                            <string key="title">Copyright (c) Branden J. Moore, 2004 &amp; Mark J. Fine, 2023-25
 Released under the GPL</string>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="270">
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="270">
                         <rect key="frame" x="108" y="61" width="182" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="http://www.forkit.org/macbiff/" id="640">
                             <font key="font" metaFont="system"/>
@@ -644,7 +645,7 @@ Released under the GPL</string>
                         </connections>
                     </textField>
                     <button imageHugsTitle="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="272">
-                        <rect key="frame" x="105" y="51" width="212" height="32"/>
+                        <rect key="frame" x="112" y="54" width="202" height="24"/>
                         <buttonCell key="cell" type="push" title="http://www.forkit.org/macbiff/" bezelStyle="rounded" alignment="center" borderStyle="border" transparent="YES" inset="2" id="641">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -654,7 +655,7 @@ Released under the GPL</string>
                         </connections>
                     </button>
                     <button imageHugsTitle="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="255">
-                        <rect key="frame" x="308" y="12" width="53" height="32"/>
+                        <rect key="frame" x="312" y="19" width="42" height="24"/>
                         <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" inset="2" id="638">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -692,22 +693,22 @@ DQ
         <window title="Connection Setup" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="setup" animationBehavior="default" id="276" userLabel="IMAPSetup">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <rect key="contentRect" x="477" y="369" width="560" height="413"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2056" height="1285"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2056" height="1289"/>
             <value key="minSize" type="size" width="213" height="107"/>
             <view key="contentView" id="275">
                 <rect key="frame" x="0.0" y="0.0" width="560" height="413"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="278">
-                        <rect key="frame" x="26" y="375" width="105" height="16"/>
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="278">
+                        <rect key="frame" x="26" y="373" width="105" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Server Identifier:" id="643">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="277">
-                        <rect key="frame" x="136" y="372" width="135" height="21"/>
+                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="277">
+                        <rect key="frame" x="136" y="369" width="135" height="24"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="135" id="ng8-EG-PR7"/>
                         </constraints>
@@ -720,16 +721,16 @@ DQ
                             <outlet property="nextKeyView" destination="283" id="572"/>
                         </connections>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="279">
-                        <rect key="frame" x="44" y="346" width="87" height="16"/>
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="279">
+                        <rect key="frame" x="44" y="341" width="87" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Server Name:" id="644">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="283">
-                        <rect key="frame" x="136" y="343" width="135" height="21"/>
+                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="283">
+                        <rect key="frame" x="136" y="337" width="135" height="24"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="135" id="XHn-pX-kec"/>
                         </constraints>
@@ -742,16 +743,16 @@ DQ
                             <outlet property="nextKeyView" destination="284" id="573"/>
                         </connections>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="280">
-                        <rect key="frame" x="55" y="317" width="76" height="16"/>
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="280">
+                        <rect key="frame" x="55" y="309" width="76" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="User Name:" id="645">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="284">
-                        <rect key="frame" x="136" y="314" width="135" height="21"/>
+                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="284">
+                        <rect key="frame" x="136" y="305" width="135" height="24"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="135" id="xRj-AK-Y3H"/>
                         </constraints>
@@ -764,16 +765,16 @@ DQ
                             <outlet property="nextKeyView" destination="285" id="574"/>
                         </connections>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="281">
-                        <rect key="frame" x="65" y="288" width="66" height="16"/>
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="281">
+                        <rect key="frame" x="65" y="277" width="66" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Password:" id="646">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="285" customClass="NSSecureTextField">
-                        <rect key="frame" x="136" y="285" width="135" height="21"/>
+                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="285" customClass="NSSecureTextField">
+                        <rect key="frame" x="136" y="273" width="135" height="24"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="135" id="ZUn-MA-6ob"/>
                         </constraints>
@@ -786,16 +787,16 @@ DQ
                             <outlet property="nextKeyView" destination="286" id="575"/>
                         </connections>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="282">
-                        <rect key="frame" x="57" y="259" width="74" height="16"/>
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="282">
+                        <rect key="frame" x="57" y="245" width="74" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Path Prefix:" id="647">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="286">
-                        <rect key="frame" x="136" y="256" width="135" height="21"/>
+                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="286">
+                        <rect key="frame" x="136" y="241" width="135" height="24"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="135" id="9k1-w7-knK"/>
                         </constraints>
@@ -808,16 +809,16 @@ DQ
                             <outlet property="nextKeyView" destination="531" id="576"/>
                         </connections>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="530">
-                        <rect key="frame" x="62" y="230" width="69" height="16"/>
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="530">
+                        <rect key="frame" x="62" y="213" width="69" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="IMAP Port:" id="658">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="531">
-                        <rect key="frame" x="136" y="227" width="135" height="21"/>
+                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="531">
+                        <rect key="frame" x="136" y="209" width="135" height="24"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="135" id="wEv-Xn-idP"/>
                         </constraints>
@@ -831,13 +832,13 @@ DQ
                         </connections>
                     </textField>
                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="532">
-                        <rect key="frame" x="20" y="209" width="251" height="5"/>
+                        <rect key="frame" x="20" y="191" width="251" height="5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="251" id="nof-qj-3F8"/>
                         </constraints>
                     </box>
                     <button toolTip="Use SSL to connect to your IMAP server." imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="287">
-                        <rect key="frame" x="18" y="181" width="77" height="18"/>
+                        <rect key="frame" x="20" y="164" width="73" height="16"/>
                         <buttonCell key="cell" type="check" title="Use SSL" bezelStyle="regularSquare" imagePosition="leading" alignment="left" state="on" inset="2" id="652">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -848,7 +849,7 @@ DQ
                         </connections>
                     </button>
                     <button toolTip="Enable this to save your password in the Keychain." imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="288">
-                        <rect key="frame" x="18" y="159" width="117" height="18"/>
+                        <rect key="frame" x="20" y="142" width="113" height="16"/>
                         <buttonCell key="cell" type="check" title="Save Password" bezelStyle="regularSquare" imagePosition="leading" alignment="left" state="on" inset="2" id="653">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -858,7 +859,7 @@ DQ
                         </connections>
                     </button>
                     <button toolTip="De-select this to configure, but not check this account." imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="446">
-                        <rect key="frame" x="18" y="137" width="75" height="18"/>
+                        <rect key="frame" x="20" y="120" width="71" height="16"/>
                         <buttonCell key="cell" type="check" title="Enabled" bezelStyle="regularSquare" imagePosition="leading" alignment="left" state="on" inset="2" id="656">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -868,7 +869,7 @@ DQ
                         </connections>
                     </button>
                     <button imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="529">
-                        <rect key="frame" x="18" y="115" width="175" height="18"/>
+                        <rect key="frame" x="20" y="98" width="171" height="16"/>
                         <buttonCell key="cell" type="check" title="Subscribed Folders Only" bezelStyle="regularSquare" imagePosition="leading" alignment="left" inset="2" id="657">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -950,7 +951,7 @@ DQ
                         </connections>
                     </scrollView>
                     <button imageHugsTitle="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="289">
-                        <rect key="frame" x="408" y="12" width="76" height="32"/>
+                        <rect key="frame" x="408" y="15" width="66" height="24"/>
                         <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="654">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -961,7 +962,7 @@ DQ
                         </connections>
                     </button>
                     <button imageHugsTitle="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="290">
-                        <rect key="frame" x="482" y="12" width="64" height="32"/>
+                        <rect key="frame" x="486" y="15" width="53" height="24"/>
                         <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" inset="2" id="655">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -1051,13 +1052,13 @@ DQ
         <window title="Enter Password" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="371" userLabel="PassWin">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <rect key="contentRect" x="457" y="369" width="365" height="147"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2056" height="1285"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2056" height="1289"/>
             <value key="minSize" type="size" width="213" height="107"/>
             <view key="contentView" id="370">
                 <rect key="frame" x="0.0" y="0.0" width="365" height="147"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="387">
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="387">
                         <rect key="frame" x="18" y="111" width="189" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Please enter the Password for:" id="666">
                             <font key="font" metaFont="system"/>
@@ -1065,7 +1066,7 @@ DQ
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="375">
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="375">
                         <rect key="frame" x="213" y="111" width="76" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="servername" id="662">
                             <font key="font" metaFont="system"/>
@@ -1073,16 +1074,16 @@ DQ
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="374">
-                        <rect key="frame" x="18" y="84" width="175" height="16"/>
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="374">
+                        <rect key="frame" x="18" y="82" width="175" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Please enter your password:" id="661">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="372" customClass="NSSecureTextField">
-                        <rect key="frame" x="201" y="81" width="144" height="21"/>
+                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="372" customClass="NSSecureTextField">
+                        <rect key="frame" x="201" y="78" width="144" height="24"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="144" id="5EZ-Hk-j3C"/>
                         </constraints>
@@ -1096,7 +1097,7 @@ DQ
                         </connections>
                     </textField>
                     <button tag="1" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="376">
-                        <rect key="frame" x="18" y="58" width="190" height="18"/>
+                        <rect key="frame" x="20" y="56" width="186" height="16"/>
                         <buttonCell key="cell" type="check" title="Save Password in Keychain" bezelStyle="regularSquare" imagePosition="leading" alignment="left" tag="1" inset="2" id="663">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -1112,7 +1113,7 @@ DQ
                         </constraints>
                     </box>
                     <button tag="3" imageHugsTitle="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="380">
-                        <rect key="frame" x="224" y="12" width="76" height="32"/>
+                        <rect key="frame" x="224" y="19" width="66" height="24"/>
                         <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" tag="3" inset="2" id="665">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -1126,7 +1127,7 @@ Gw
                         </connections>
                     </button>
                     <button tag="2" imageHugsTitle="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="379">
-                        <rect key="frame" x="298" y="12" width="53" height="32"/>
+                        <rect key="frame" x="302" y="19" width="42" height="24"/>
                         <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" tag="2" inset="2" id="664">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -1187,7 +1188,7 @@ DQ
         <window title="MacBiff" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="427" userLabel="List Window">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <rect key="contentRect" x="614" y="332" width="373" height="478"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2056" height="1285"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2056" height="1289"/>
             <value key="minSize" type="size" width="213" height="107"/>
             <view key="contentView" id="426">
                 <rect key="frame" x="0.0" y="0.0" width="373" height="478"/>
@@ -1263,7 +1264,7 @@ DQ
                         </tableHeaderView>
                     </scrollView>
                     <button imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="433">
-                        <rect key="frame" x="18" y="442" width="280" height="18"/>
+                        <rect key="frame" x="20" y="443" width="276" height="16"/>
                         <buttonCell key="cell" type="check" title="Show Only Folders with Unread Messages" bezelStyle="regularSquare" imagePosition="leading" alignment="left" state="on" inset="2" id="667">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -1291,14 +1292,14 @@ DQ
         <window title="MacBiff Activity Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="537" userLabel="ActivityWin">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <rect key="contentRect" x="484" y="680" width="347" height="130"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2056" height="1285"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2056" height="1289"/>
             <value key="minSize" type="size" width="347" height="130"/>
             <value key="maxSize" type="size" width="831" height="130"/>
             <view key="contentView" id="538">
                 <rect key="frame" x="0.0" y="0.0" width="347" height="130"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="541">
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="541">
                         <rect key="frame" x="16" y="94" width="108" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Checking Server:" id="668">
                             <font key="font" metaFont="system"/>
@@ -1306,7 +1307,7 @@ DQ
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="542">
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="542">
                         <rect key="frame" x="126" y="94" width="70" height="16"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="--- idle ---" id="669">
                             <font key="font" metaFont="system"/>
@@ -1314,8 +1315,8 @@ DQ
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="543">
-                        <rect key="frame" x="16" y="45" width="315" height="16"/>
+                    <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="543">
+                        <rect key="frame" x="16" y="43" width="315" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="311" id="egK-Wm-sfI"/>
                         </constraints>
@@ -1326,13 +1327,13 @@ DQ
                         </textFieldCell>
                     </textField>
                     <progressIndicator wantsLayer="YES" verticalHuggingPriority="750" maxValue="100" bezeled="NO" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="539">
-                        <rect key="frame" x="18" y="66" width="311" height="20"/>
+                        <rect key="frame" x="18" y="65" width="311" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="311" id="3zj-9M-7wa"/>
                         </constraints>
                     </progressIndicator>
                     <progressIndicator wantsLayer="YES" verticalHuggingPriority="750" maxValue="100" bezeled="NO" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="540">
-                        <rect key="frame" x="18" y="17" width="311" height="20"/>
+                        <rect key="frame" x="18" y="14" width="311" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="311" id="y6b-WV-yOv"/>
                         </constraints>

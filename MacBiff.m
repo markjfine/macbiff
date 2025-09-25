@@ -611,7 +611,8 @@ static void sigUSR2( int sig )
 //        types: ft];
     [op setDirectoryURL: nil];
     [op setRepresentedFilename: [CmailAppText stringValue]];
-    [op setAllowedFileTypes: ft];
+//    [op setAllowedFileTypes: ft];
+    [op setAllowedContentTypes: ft];
     res = (int)[op runModal];
 
     if ( res == NSModalResponseOK ) {
@@ -623,10 +624,14 @@ static void sigUSR2( int sig )
 
 - (IBAction) launchMail: (id) sender
 {
-
-	NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-	[[NSWorkspace sharedWorkspace] launchApplication:
-		[prefs stringForKey: @"Mail App"]];
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    [[NSWorkspace sharedWorkspace] openApplicationAtURL: [NSURL fileURLWithPath: [prefs stringForKey: @"Mail App"] isDirectory: YES]
+                                          configuration: NSWorkspaceOpenConfiguration.configuration
+                                      completionHandler: ^(NSRunningApplication* app, NSError* error) {
+        if (error) {
+            NSLog(@"Failed to run the app: %@", error.localizedDescription);
+        }
+    }];
 }
 
 

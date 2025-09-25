@@ -340,7 +340,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1530;
+				LastUpgradeCheck = 2600;
 			};
 			buildConfigurationList = F21ACD3610554F1E004A111C /* Build configuration list for PBXProject "MacBiff" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -484,6 +484,7 @@
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 			};
 			name = Development;
 		};
@@ -526,6 +527,7 @@
 				LIBRARY_SEARCH_PATHS = "/opt/homebrew/Cellar/openssl@1.1/1.1.1w/lib/**";
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 			};
 			name = Deployment;
 		};
@@ -567,6 +569,7 @@
 				LIBRARY_SEARCH_PATHS = "/opt/homebrew/Cellar/openssl@1.1/1.1.1w/lib/**";
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 			};
 			name = Default;
 		};
@@ -577,7 +580,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1.1.21;
+				CURRENT_PROJECT_VERSION = 1.1.23;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUGGING_SYMBOLS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -607,8 +610,8 @@
 					/usr/lib,
 					"/opt/homebrew/Cellar/openssl@1.1/1.1.1w/lib",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 1.1.21;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 1.1.23;
 				OTHER_CFLAGS = "-DUSE_GROWL";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.forkit.MacBiff;
@@ -631,7 +634,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 1.1.21;
+				CURRENT_PROJECT_VERSION = 1.1.23;
 				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -658,8 +661,8 @@
 					/usr/lib,
 					"/opt/homebrew/Cellar/openssl@1.1/1.1.1w/lib",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 1.1.21;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 1.1.23;
 				OTHER_CFLAGS = "-DUSE_GROWL";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.forkit.MacBiff;
@@ -681,7 +684,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "-";
-				CURRENT_PROJECT_VERSION = 1.1.21;
+				CURRENT_PROJECT_VERSION = 1.1.23;
 				DEAD_CODE_STRIPPING = YES;
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = 2X7X2WFREK;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -709,8 +712,8 @@
 					/usr/lib,
 					"/opt/homebrew/Cellar/openssl@1.1/1.1.1w/lib",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
-				MARKETING_VERSION = 1.1.21;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MARKETING_VERSION = 1.1.23;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.forkit.MacBiff;
 				PRODUCT_NAME = MacBiff;
