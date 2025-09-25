@@ -600,8 +600,8 @@ static void sigUSR2( int sig )
 
 - (IBAction) chooseApp: (id) sender
 {
-	int res;
-	NSArray *ft = [NSArray arrayWithObject: @"app"];
+//	int res;
+//	NSArray *ft = [NSArray arrayWithObject: @"app"];
 	NSOpenPanel *op = [NSOpenPanel openPanel];
 
 	[op setAllowsMultipleSelection: NO];
@@ -612,13 +612,15 @@ static void sigUSR2( int sig )
     [op setDirectoryURL: nil];
     [op setRepresentedFilename: [CmailAppText stringValue]];
 //    [op setAllowedFileTypes: ft];
-    [op setAllowedContentTypes: ft];
-    res = (int)[op runModal];
+    [op setAllowedContentTypes: @[UTTypeApplication]];
+//    res = (int)[op runModal];
 
-    if ( res == NSModalResponseOK ) {
-		NSArray *files = [op URLs];
-		[CmailAppText setStringValue: [files objectAtIndex: 0]];
-	}
+    [op beginWithCompletionHandler:^(NSModalResponse res) {
+        if ( res == NSModalResponseOK ) {
+            NSArray *files = [op URLs];
+            [CmailAppText setStringValue: [files objectAtIndex: 0]];
+        }
+    }];
 }
 
 

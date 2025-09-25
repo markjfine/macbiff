@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		07C9EAD6071E3DF5003D1B8D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07C9EAD4071E3DF5003D1B8D /* Localizable.strings */; };
+		4DD449182E85D5C200E082B2 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD449172E85D5C200E082B2 /* UniformTypeIdentifiers.framework */; };
 		8D1107280486CEB800E47090 /* MacBiff_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32CA4F630368D1EE00C91783 /* MacBiff_Prefix.pch */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -90,6 +91,7 @@
 		4D0138CA22837A1800D24C77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		4D0138CB22837A2200D24C77 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4D0138CC22837A2300D24C77 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4DD449172E85D5C200E082B2 /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* MacBiff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacBiff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A61DF25905E6E4A8000FC1EF /* version.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				A676327B05D55E6D00230271 /* Security.framework in Frameworks */,
 				A6874B9705D7E7EA009B7DC0 /* libssl.1.1.dylib in Frameworks */,
 				A6874B9905D7E7F9009B7DC0 /* libcrypto.1.1.dylib in Frameworks */,
+				4DD449182E85D5C200E082B2 /* UniformTypeIdentifiers.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,6 +189,7 @@
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				A676327A05D55E6D00230271 /* Security.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+				4DD449172E85D5C200E082B2 /* UniformTypeIdentifiers.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
