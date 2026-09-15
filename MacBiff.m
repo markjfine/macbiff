@@ -1107,7 +1107,9 @@ static void sigUSR2( int sig )
 	[self checkMail];
 
 	dprintf("%s back from checkMail (mainMenu: %p)\n", __FUNCTION__, mainMenu);
-	[systemBar setMenu: mainMenu];
+    dispatch_async(queue, ^{
+        [systemBar setMenu: mainMenu];
+    });
 	dprintf("%s set the menu (red: %d)\n", __FUNCTION__, goRed);
 
 	if ( goRed || unread ) {
@@ -1282,7 +1284,9 @@ static void sigUSR2( int sig )
 		dprintf("%s back from menuUpdate\n", __FUNCTION__);
 
 		if ( user_pressed_stop == 0 ) {
-			[systemBar setMenu: mainMenu];
+            dispatch_async(queue, ^{
+                [systemBar setMenu: mainMenu];
+            });
 			[Dlist updateData];
 		} else {
             if (backtitle) {

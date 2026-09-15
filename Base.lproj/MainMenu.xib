@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="24128" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="25098" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="24128"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="25098"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -57,7 +57,7 @@ Gw
                                             <rect key="frame" x="20" y="38" width="214" height="196"/>
                                             <clipView key="contentView" id="Qa3-qa-XRq">
                                                 <rect key="frame" x="1" y="1" width="212" height="194"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
                                                     <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" headerView="678" id="461">
                                                         <rect key="frame" x="0.0" y="0.0" width="212" height="169"/>
@@ -627,7 +627,7 @@ Gw
                         </constraints>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" id="637">
                             <font key="font" metaFont="system"/>
-                            <string key="title">Copyright (c) Branden J. Moore, 2004 &amp; Mark J. Fine, 2023-25
+                            <string key="title">Copyright (c) Branden J. Moore, 2004 &amp; Mark J. Fine, 2023-26
 Released under the GPL</string>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -882,7 +882,7 @@ DQ
                         <rect key="frame" x="292" y="60" width="248" height="334"/>
                         <clipView key="contentView" id="nZV-Gx-n3d">
                             <rect key="frame" x="1" y="1" width="246" height="332"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" headerView="681" indentationPerLevel="16" autoresizesOutlineColumn="YES" outlineTableColumn="302" id="303">
                                     <rect key="frame" x="0.0" y="0.0" width="246" height="307"/>
@@ -1198,7 +1198,7 @@ DQ
                         <rect key="frame" x="0.0" y="0.0" width="373" height="429"/>
                         <clipView key="contentView" id="nh4-I0-4Pq">
                             <rect key="frame" x="1" y="1" width="371" height="427"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" headerView="684" indentationPerLevel="16" autoresizesOutlineColumn="YES" outlineTableColumn="429" id="430">
                                     <rect key="frame" x="0.0" y="0.0" width="371" height="402"/>
